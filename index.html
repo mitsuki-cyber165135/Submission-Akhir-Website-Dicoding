@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Submission Akhir Website Dicoding | Joseph Farrel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <h1>Situs Website Gua Nih Bray!</h1>
+      <p class="tagline">Tugas Akhir Membuat Website.</p>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#tentang-html">HTML Semantik</a></li>
+        <li><a href="#tentang-flexbox">Flexbox</a></li>
+        <li><a href="#profil">Profil</a></li>
+        <li><a href="https://www.dicoding.com/users/joseph_farrelnh8s/academies" target="_blank" rel="noopener">Profil Dicoding</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div id="content">
+
+      <article id="tentang-html">
+        <h2>Kenapa HTML semantik itu penting</h2>
+        <p class="meta">Ditulis pada 28 September 2026</p>
+        <p>
+          Dulu saya menaruh semuanya di dalam <code>&lt;div&gt;</code>. Halaman tetap tampil,
+          tetapi kode sulit dibaca dan mesin pencari tidak tahu mana bagian yang penting.
+        </p>
+        <p>
+          Elemen seperti <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>,
+          <code>&lt;main&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;aside&gt;</code>,
+          dan <code>&lt;footer&gt;</code> memberi nama pada tiap bagian halaman. Pembaca layar
+          juga bisa melompat langsung ke bagian yang dicari.
+        </p>
+        <h3>Yang saya pelajari</h3>
+        <ul>
+          <li>Satu halaman hanya punya satu <code>&lt;h1&gt;</code>.</li>
+          <li>Level heading tidak boleh dilompati, dari h2 langsung ke h4 misalnya.</li>
+          <li>Setiap gambar wajib punya teks alternatif.</li>
+        </ul>
+      </article>
+
+      <article id="tentang-flexbox">
+        <h2>Menyusun layout dengan flexbox</h2>
+        <p class="meta">Ditulis pada 28 September 2026</p>
+        <p>
+          Layout dua kolom di halaman ini dibuat dengan <code>display: flex</code>, tanpa
+          <code>float</code>. Kolom artikel mengambil sisa ruang lewat <code>flex: 1</code>,
+          sedangkan kolom samping punya lebar tetap.
+        </p>
+        <p>
+          Di layar sempit, arah flex diubah menjadi <code>column</code> lewat media query,
+          sehingga kolom samping pindah ke bawah artikel.
+        </p>
+        <h3>Properti yang paling sering dipakai</h3>
+        <ul>
+          <li><code>flex-direction</code> untuk mengatur arah susunan.</li>
+          <li><code>gap</code> untuk jarak antar elemen.</li>
+          <li><code>justify-content</code> dan <code>align-items</code> untuk perataan.</li>
+        </ul>
+      </article>
+
+    </div>
+
+    <aside id="profil">
+      <img src="assets/IMG_5764ok.jpg" alt="Foto Profil Saya">
+      <h2>Tentang saya</h2>
+      <dl>
+        <dt>Nama</dt>
+        <dd>Joseph Farrel</dd>
+        <dt>Sedang belajar</dt>
+        <dd>Submission Dicoding</dd>
+        <dt>Kota</dt>
+        <dd>Jakarta</dd>
+        <dt>Target</dt>
+        <dd>Menjadi front-end developer</dd>
+      </dl>
+    </aside>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Joseph Farrel. Dibuat sebagai submission kelas belajar dasar pemrograman web.</p>
+  </footer>
+
+</body>
+</html>
