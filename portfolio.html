@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Joseph Farrel | Mahasiswa Fisika IPB University</title>
+<meta name="description" content="Joseph Farrel, mahasiswa Fisika Teoretis & Matematika IPB University yang tertarik pada pemrograman, sains data, dan pengembangan web.">
+<meta name="theme-color" content="#0f172a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0f172a;--text:#94a3b8;--strong:#e2e8f0;--head:#cbd5e1;--accent:#5eead4;--pill-bg:rgba(45,212,191,.1);--pill-fg:#5eead4;--card:rgba(30,41,59,.5)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:400 16px/1.6 Inter,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+body::selection{background:rgba(94,234,212,.3)}
+a{color:var(--strong);text-decoration:none;font-weight:500}
+a:hover,a:focus-visible{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+#glow{position:fixed;inset:0;pointer-events:none;z-index:1;background:radial-gradient(600px at var(--x,50%) var(--y,30%),rgba(29,78,216,.15),transparent 80%)}
+.wrap{position:relative;z-index:2;max-width:1280px;margin:0 auto;padding:0 24px}
+@media(min-width:768px){.wrap{padding:0 48px}}
+@media(min-width:1024px){.wrap{display:flex;justify-content:space-between;gap:48px;padding:0 96px}}
+header{padding:48px 0 0}
+@media(min-width:1024px){header{position:sticky;top:0;display:flex;flex-direction:column;justify-content:space-between;width:48%;max-height:100vh;padding:96px 0}}
+h1{margin:0;font-size:clamp(2.25rem,5vw,3rem);line-height:1.1;font-weight:600;color:var(--strong);letter-spacing:-.02em}
+h1 a{color:inherit}
+.role{margin:12px 0 0;font-size:1.25rem;font-weight:500;color:var(--strong)}
+.tag{margin:16px 0 0;max-width:20rem}
+nav{display:none;margin-top:64px}
+@media(min-width:1024px){nav{display:block}}
+nav a{display:flex;align-items:center;gap:16px;padding:10px 0;font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text)}
+nav a::before{content:"";height:1px;width:32px;background:#475569;transition:width .2s,background .2s}
+nav a:hover,nav a.on{color:var(--strong)}
+nav a:hover::before,nav a.on::before{width:64px;background:var(--strong)}
+.social{display:flex;gap:20px;margin:32px 0 0;padding:0;list-style:none}
+.social a{color:var(--text);display:block}
+.social a:hover{color:var(--accent)}
+.social svg{width:24px;height:24px;fill:currentColor}
+main{padding:48px 0 96px}
+@media(min-width:1024px){main{width:52%;padding:96px 0}}
+section{margin-bottom:96px;scroll-margin-top:96px}
+@media(min-width:768px){section{margin-bottom:144px}}
+.h2{position:sticky;top:0;z-index:5;margin:0 -24px 16px;padding:20px 24px;background:rgba(15,23,42,.85);backdrop-filter:blur(8px);font-size:.875rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--strong)}
+@media(min-width:768px){.h2{margin:0 -48px 16px;padding:20px 48px}}
+@media(min-width:1024px){.h2{position:static;margin:0 0 16px;padding:0;background:none;backdrop-filter:none;position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}}
+section p{margin:0 0 16px}
+.list{list-style:none;margin:0;padding:0}
+.list:hover .item{opacity:.5}
+.list .item:hover{opacity:1}
+.item{position:relative;display:grid;gap:8px;padding:20px 16px;margin:0 -16px;border-radius:8px;transition:opacity .2s,background .2s}
+@media(min-width:640px){.item{grid-template-columns:8rem 1fr;gap:24px}}
+.item:hover{background:var(--card)}
+.when{font-size:.75rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;padding-top:4px;color:var(--text)}
+.item h3{margin:0;font-size:1rem;line-height:1.4;font-weight:500;color:var(--strong)}
+.item h3 span{color:var(--text);font-weight:400}
+.item p{margin:8px 0 0;font-size:.875rem}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 0;padding:0;list-style:none}
+.pills li{padding:4px 12px;border-radius:999px;background:var(--pill-bg);color:var(--pill-fg);font-size:.75rem;font-weight:500;line-height:1.5}
+.proj{grid-template-columns:1fr}
+.skills{margin-top:8px}
+.skills h3{margin:24px 0 0;font-size:.875rem;font-weight:600;color:var(--strong)}
+.cred{font-size:.75rem;color:var(--text)}
+.edu .item{grid-template-columns:8rem 1fr}
+footer{font-size:.875rem;max-width:28rem}
+footer a{font-weight:500}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+<div id="glow" aria-hidden="true"></div>
+<div class="wrap">
+<header>
+  <div>
+    <h1><a href="/">Joseph Farrel</a></h1>
+    <p class="role">Mahasiswa Fisika Teoretis &amp; Matematika</p>
+    <p class="tag">Saya membangun hal-hal kecil dengan sains, data, dan kode, dari Bogor dan Jakarta Utara.</p>
+    <p class="tag"><a href="index.html">Lihat versi klasik website ini</a></p>
+    <nav aria-label="Navigasi bagian">
+      <a href="#tentang">Tentang</a>
+      <a href="#pengalaman">Pengalaman</a>
+      <a href="#proyek">Proyek</a>
+      <a href="#keahlian">Keahlian</a>
+      <a href="#sertifikasi">Sertifikasi</a>
+    </nav>
+  </div>
+  <ul class="social">
+    <li><a href="https://github.com/mitsuki-cyber165135" aria-label="GitHub" target="_blank" rel="noreferrer"><svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a></li>
+    <li><a href="https://www.linkedin.com/in/joseph-farrel-536947318/" aria-label="LinkedIn" target="_blank" rel="noreferrer"><svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></li>
+  </ul>
+</header>
+
+<main>
+<section id="tentang" aria-label="Tentang">
+  <h2 class="h2">Tentang</h2>
+  <p>Halo! Saya <a href="https://www.linkedin.com/in/joseph-farrel-536947318/" target="_blank" rel="noreferrer">Joseph</a>, mahasiswa S1 Fisika Teoretis dan Matematika di IPB University (2024–2028). Saya suka memecahkan masalah dengan memadukan cara berpikir sains dan kemampuan teknologi.</p>
+  <p>Di luar kelas, saya aktif berorganisasi: dari memimpin departemen kajian strategis di Eksekutif Ormawa PKU IPB, memimpin delegasi Jakarta Community IPB di Gebyar Nusantara 2025, sampai menjadi Liaison Officer di peringatan Hari Pendidikan Nasional di Indonesia Arena.</p>
+  <p>Sekarang saya sedang belajar pengembangan web, <a href="#sertifikasi">sains data dengan Microsoft Fabric</a>, aplikasi Gen AI dengan Microsoft Azure, serta pemrograman dengan Java, C, dan Haskell.</p>
+</section>
+
+<section id="pengalaman" aria-label="Pengalaman">
+  <h2 class="h2">Pengalaman</h2>
+  <ol class="list">
+    <li class="item"><div class="when">Jan – Nov 2025</div><div>
+      <h3>Head of Departemen Kajian dan Aksi Strategis <span>· Eksekutif Ormawa PKU IPB</span></h3>
+      <p>Memimpin departemen kajian dan aksi strategis: perencanaan strategis, kajian kebijakan, dan pelaksanaan aksi mahasiswa.</p>
+      <ul class="pills"><li>Leadership</li><li>Kajian Kebijakan</li><li>Perencanaan Strategis</li></ul></div></li>
+    <li class="item"><div class="when">Jan – Nov 2025</div><div>
+      <h3>External Staff <span>· Jakarta Community IPB</span></h3>
+      <p>Menghubungkan mahasiswa asal Jakarta dengan kegiatan kampus dan komunitas lokal sebagai staf eksternal.</p>
+      <ul class="pills"><li>Relasi Eksternal</li><li>Komunitas</li></ul></div></li>
+    <li class="item"><div class="when">Mar – Okt 2025</div><div>
+      <h3>Head of Jakarta Community Goes to Gebyar Nusantara 2025</h3>
+      <p>Memimpin delegasi Jakarta Community IPB di Gebyar Nusantara 2025, mengkoordinasikan persiapan, logistik, dan penampilan tim selama 8 bulan.</p>
+      <ul class="pills"><li>Leadership</li><li>Event Planning</li><li>Logistik</li></ul></div></li>
+    <li class="item"><div class="when">Mei 2024</div><div>
+      <h3>Liaison Officer <span>· Hardiknas, Indonesia Arena (Angel House)</span></h3>
+      <p>Mengelola koordinasi antarpihak, crowd control, dan hubungan dengan tamu undangan pada acara nasional Hari Pendidikan Nasional 2024.</p>
+      <ul class="pills"><li>Event Planning</li><li>Crowd Control</li><li>Guest Relations</li><li>Public Speaking</li><li>Teamwork</li><li>Problem Solving</li></ul></div></li>
+    <li class="item"><div class="when">Agu 2022 – Sep 2023</div><div>
+      <h3>School President <span>· SMA Negeri 15 Jakarta</span></h3>
+      <p>Terpilih sebagai Ketua OSIS. Memimpin program kerja organisasi siswa dan mewakili siswa di forum sekolah maupun luar sekolah.</p>
+      <ul class="pills"><li>Leadership</li></ul></div></li>
+  </ol>
+</section>
+
+<section id="proyek" aria-label="Proyek">
+  <h2 class="h2">Proyek</h2>
+  <ul class="list">
+    <li class="item proj"><div>
+      <h3><a href="https://github.com/mitsuki-cyber165135/Submission-Akhir-Website-Dicoding" target="_blank" rel="noreferrer">Website Portofolio Pribadi</a></h3>
+      <p>Website portofolio yang dibangun dengan HTML, CSS, dan JavaScript, lengkap dengan dark mode, animasi scroll, dan skill bar. Proyek akhir kelas web di Dicoding.</p>
+      <ul class="pills"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>Vercel</li></ul></div></li>
+    <li class="item proj"><div>
+      <h3><a href="https://www.linkedin.com/in/joseph-farrel-536947318/" target="_blank" rel="noreferrer">Spec-Driven Development dengan Kiro</a></h3>
+      <p>Pengembangan berbasis spesifikasi dengan Kiro sebagai asisten AI. Lulus kelas Dicoding Indonesia pada Oktober 2026.</p>
+      <ul class="pills"><li>Kiro</li><li>Spec-Driven</li></ul></div></li>
+    <li class="item proj"><div>
+      <h3>Gebyar Nusantara 2025</h3>
+      <p>Memimpin delegasi Jakarta Community IPB dalam acara budaya nasional, dari persiapan, logistik, hingga penampilan.</p>
+      <ul class="pills"><li>Leadership</li><li>Event Nasional</li></ul></div></li>
+  </ul>
+</section>
+
+<section id="keahlian" aria-label="Keahlian">
+  <h2 class="h2">Keahlian</h2>
+  <div class="skills">
+    <h3 style="margin-top:0">Teknologi &amp; Pengetahuan</h3>
+    <ul class="pills"><li>SQL</li><li>Data Science</li><li>Visualisasi Data</li><li>Pemrograman Web</li><li>Java</li><li>C</li><li>Haskell</li><li>Dasar AI</li><li>Theoretical Physics</li></ul>
+    <h3>Interpersonal</h3>
+    <ul class="pills"><li>Leadership</li><li>Teamwork</li><li>Problem Solving</li><li>Public Speaking</li><li>Guest Relations</li><li>Crowd Control</li><li>Event Planning</li></ul>
+  </div>
+  <div class="edu" style="margin-top:48px">
+    <ul class="list">
+      <li class="item"><div class="when">2024 – 2028</div><div><h3>IPB University</h3><p>S1 Fisika Teoretis dan Matematika, Bogor. Fokus pada fisika komputasi, pemodelan matematika, dan pengembangan teknologi.</p></div></li>
+      <li class="item"><div class="when">2021 – 2024</div><div><h3>SMA Negeri 15 Jakarta</h3><p>Matematika dan IPA, Jakarta Utara. Ketua OSIS periode 2022–2023.</p></div></li>
+    </ul>
+  </div>
+</section>
+
+<section id="sertifikasi" aria-label="Sertifikasi">
+  <h2 class="h2">Sertifikasi</h2>
+  <ul class="list">
+    <li class="item proj"><div><h3>Spec-Driven Development dengan Kiro</h3><span class="cred">Dicoding Indonesia · Okt 2026 · ID 07Z6Q019MZQR</span></div></li>
+    <li class="item proj"><div><h3>Pemrograman dengan Haskell</h3><span class="cred">Dicoding Indonesia · Okt 2026 · ID N9ZO0M06YXG5</span></div></li>
+    <li class="item proj"><div><h3>Manajemen Proyek</h3><span class="cred">Dicoding Indonesia · Okt 2026 · ID MEPJMY4L6P3V</span></div></li>
+    <li class="item proj"><div><h3>Pemrograman dengan C</h3><span class="cred">Dicoding Indonesia · Okt 2026 · ID 1OP87NQL1ZQK</span></div></li>
+    <li class="item proj"><div><h3>Pemrograman dengan Java</h3><span class="cred">Dicoding Indonesia · Okt 2026 · ID EYX4O0W2WXDL</span></div></li>
+    <li class="item proj"><div><h3>Membangun Aplikasi Gen AI dengan Microsoft Azure</h3><span class="cred">Dicoding Indonesia · Sep 2026 · ID NVP7W763RZR0</span></div></li>
+    <li class="item proj"><div><h3>Penerapan Data Science dengan Microsoft Fabric</h3><span class="cred">Dicoding Indonesia · Sep 2026 · ID 53XEMY9N0PRN</span></div></li>
+    <li class="item proj"><div><h3>Pemrograman Web</h3><span class="cred">Dicoding Indonesia · Sep 2026 · ID ERZR7WWQNZYV</span></div></li>
+    <li class="item proj"><div><h3>Pemrograman untuk Menjadi Pengembang Software</h3><span class="cred">Dicoding Indonesia · Sep 2026 · ID EYX4O06OWXDL</span></div></li>
+    <li class="item proj"><div><h3>Siswa Tersertifikasi Gemini – Universitas</h3><span class="cred">Google for Education · Sep 2026 · ID 195044568</span></div></li>
+    <li class="item proj"><div><h3>Dasar AI</h3><span class="cred">Dicoding Indonesia · Sep 2026 · ID 1RXYD1MYMXVM</span></div></li>
+    <li class="item proj"><div><h3>Visualisasi Data</h3><span class="cred">Dicoding Indonesia · Sep 2026 · ID EYX4O024JXDL</span></div></li>
+    <li class="item proj"><div><h3>Structured Query Language (SQL)</h3><span class="cred">Dicoding Indonesia · Sep 2026 · ID JMZVL104OXN9</span></div></li>
+    <li class="item proj"><div><h3>Data Science</h3><span class="cred">Dicoding Indonesia · Sep 2026 · ID 6RPNO4L55X2M</span></div></li>
+  </ul>
+</section>
+
+<footer>
+  <p>Ingin berkolaborasi atau sekadar ngobrol? Hubungi saya lewat <a href="https://www.linkedin.com/in/joseph-farrel-536947318/" target="_blank" rel="noreferrer">LinkedIn</a>.</p>
+  <p><a href="index.html">Lihat versi klasik website ini</a>.</p>
+  <p>Desain terinspirasi dari <a href="https://brittanychiang.com/" target="_blank" rel="noreferrer">brittanychiang.com</a>. Dibangun dengan HTML, CSS, dan JavaScript, dan dihosting di Vercel.</p>
+</footer>
+</main>
+</div>
+<script>
+var g=document.getElementById('glow');
+addEventListener('pointermove',function(e){g.style.setProperty('--x',e.clientX+'px');g.style.setProperty('--y',e.clientY+'px')});
+var links=[].slice.call(document.querySelectorAll('nav a'));
+var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))});
+function spy(){var y=scrollY+innerHeight*0.35,cur=0;secs.forEach(function(s,i){if(s.offsetTop<=y)cur=i});links.forEach(function(a,i){a.classList.toggle('on',i===cur)})}
+addEventListener('scroll',spy,{passive:true});spy();
+</script>
+</body>
+</html>

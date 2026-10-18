@@ -1,370 +1,577 @@
-﻿<!DOCTYPE html>
-<html lang="id">
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Joseph Farrel | Mahasiswa Fisika IPB University</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Joseph Farrel — Physics Student &amp; Web Developer</title>
+  <meta name="description" content="Joseph Farrel — Mahasiswa Fisika Teoretis dan Matematika di IPB University. Passionate about programming, data science, and web development." />
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/style.css" />
+
+  <!-- Early theme script (default dark) -->
   <script>
-    (function applyThemeEarly() {
-      try {
-        var stored = localStorage.getItem('theme');
-        if (stored === 'dark' || stored === 'light') {
-          document.documentElement.setAttribute('data-theme', stored);
-        } else {
-          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-          document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
-        }
-      } catch (e) {
-        document.documentElement.setAttribute('data-theme', 'light');
-      }
+    (function () {
+      const theme = localStorage.getItem('theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', theme);
     })();
   </script>
-  <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
+  <!-- Skip to content -->
+  <a href="#content" class="skip-link">Skip to Content</a>
 
-  <header>
-    <div class="header-inner">
-      <h1>Joseph Farrel</h1>
-      <p class="tagline">Mahasiswa Fisika Teoretis & Matematika · IPB University · North Jakarta, Indonesia</p>
-    </div>
-  </header>
+  <!-- Mouse-following spotlight -->
+  <div class="spotlight" aria-hidden="true"></div>
 
-  <nav class="sticky-nav" id="main-nav" aria-label="Navigasi utama">
-    <div class="nav-inner">
-      <button class="hamburger" id="hamburger-btn"
-              aria-label="Buka menu navigasi"
-              aria-expanded="false"
-              aria-controls="nav-links">
-        <span class="hamburger-icon"></span>
-      </button>
-      <ul class="nav-links" id="nav-links" role="list">
-        <li><a href="#tentang">Tentang</a></li>
-        <li><a href="#pengalaman">Pengalaman</a></li>
-        <li><a href="#portofolio">Portofolio</a></li>
-        <li><a href="#skills">Keahlian</a></li>
-        <li><a href="#sertifikasi">Sertifikasi</a></li>
-        <li><a href="#timeline">Pendidikan</a></li>
-        <li><a href="#kontak">Kontak</a></li>
-        <li><a href="https://www.linkedin.com/in/joseph-farrel-536947318/" target="_blank" rel="noopener">LinkedIn</a></li>
-      </ul>
-      <button class="theme-toggle" id="theme-toggle-btn"
-              aria-label="Aktifkan dark mode">
-        <span class="icon-moon" aria-hidden="true">🌙</span>
-        <span class="icon-sun" aria-hidden="true">☀️</span>
-      </button>
-    </div>
-  </nav>
+  <div class="layout-wrapper">
+    <!-- ===================== LEFT SIDEBAR ===================== -->
+    <header class="sidebar">
+      <div class="sidebar__inner">
+        <!-- Profile image -->
+        <div class="sidebar__avatar">
+          <img src="assets/IMG_5764ok.jpg" alt="Joseph Farrel" width="120" height="120" />
+        </div>
 
-  <main>
-    <div id="content">
+        <!-- Identity -->
+        <h1 class="sidebar__name">Joseph Farrel</h1>
+        <h2 class="sidebar__title">Physics Student at IPB University</h2>
+        <p class="sidebar__tagline">I study theoretical physics &amp; mathematics while building things for the web.</p>
 
-      <article id="tentang" class="scroll-hidden">
-        <h2>Tentang Saya</h2>
-        <p>
-          Halo! Saya <strong>Joseph Farrel</strong>, mahasiswa Bachelor of Science jurusan
-          Fisika Teoretis dan Matematika di <strong>IPB University</strong>, Bogor (2024–2028).
-          Saya berasal dari Jakarta Utara dan memiliki ketertarikan kuat pada pemrograman,
-          sains data, dan pengembangan web.
-        </p>
-        <p>
-          Di luar kuliah, saya aktif di berbagai organisasi dan kegiatan kemahasiswaan,
-          mulai dari kepemimpinan organisasi hingga event planning skala nasional.
-          Saya percaya bahwa kombinasi antara ilmu sains dan kemampuan teknologi
-          adalah kunci untuk memecahkan masalah nyata.
-        </p>
-        <h3>Saat ini sedang belajar</h3>
-        <ul>
-          <li>Web Development (HTML, CSS, JavaScript)</li>
-          <li>Data Science dengan Microsoft Fabric</li>
-          <li>Pemrograman dengan Java, C, dan Haskell</li>
-          <li>Pengembangan aplikasi dengan Microsoft Azure</li>
+        <!-- Navigation -->
+        <nav class="sidebar__nav" aria-label="In-page navigation">
+          <ul>
+            <li><a href="#about" class="nav-link active"><span class="nav-indicator"></span><span class="nav-text">About</span></a></li>
+            <li><a href="#experience" class="nav-link"><span class="nav-indicator"></span><span class="nav-text">Experience</span></a></li>
+            <li><a href="#skills" class="nav-link"><span class="nav-indicator"></span><span class="nav-text">Skills</span></a></li>
+            <li><a href="#certifications" class="nav-link"><span class="nav-indicator"></span><span class="nav-text">Certifications</span></a></li>
+            <li><a href="#projects" class="nav-link"><span class="nav-indicator"></span><span class="nav-text">Projects</span></a></li>
+            <li><a href="#education" class="nav-link"><span class="nav-indicator"></span><span class="nav-text">Education</span></a></li>
+            <li><a href="#contact" class="nav-link"><span class="nav-indicator"></span><span class="nav-text">Contact</span></a></li>
+          </ul>
+        </nav>
+
+        <!-- Social links -->
+        <ul class="sidebar__socials" aria-label="Social media">
+          <li>
+            <a href="https://www.linkedin.com/in/joseph-farrel-536947318/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24" aria-hidden="true">
+                <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/mitsuki-cyber165135" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24" aria-hidden="true">
+                <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="mailto:josephfarrel@apps.ipb.ac.id" aria-label="Email" title="Email">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24" aria-hidden="true">
+                <path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z"/>
+                <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z"/>
+              </svg>
+            </a>
+          </li>
         </ul>
-      </article>
-
-      <article id="pengalaman" class="scroll-hidden">
-        <h2>Pengalaman</h2>
-
-        <h3>Head of Departemen Kajian dan Aksi Strategis</h3>
-        <p class="meta">Eksekutif Ormawa PKU IPB · Full-time · Jan 2025 – Nov 2025 · 11 bln · Indonesia</p>
-        <p>
-          Memimpin departemen kajian dan aksi strategis di organisasi kemahasiswaan
-          Eksekutif Ormawa PKU IPB. Bertanggung jawab atas perencanaan strategis,
-          kajian kebijakan, dan pelaksanaan aksi mahasiswa.
-        </p>
-
-        <h3>External Staff · Jakarta Community IPB</h3>
-        <p class="meta">Full-time · Jan 2025 – Nov 2025 · 11 bln · Indonesia</p>
-        <p>
-          Berperan sebagai staf eksternal untuk komunitas Jakarta di IPB University,
-          menghubungkan mahasiswa asal Jakarta dengan kegiatan kampus dan komunitas lokal.
-        </p>
-
-        <h3>Head Of Jakarta Community Goes To Gebyar Nusantara 2025</h3>
-        <p class="meta">Seasonal · Mar 2025 – Oct 2025 · 8 bln · Bogor, West Java, Indonesia</p>
-        <p>
-          Memimpin delegasi komunitas Jakarta IPB dalam event Gebyar Nusantara 2025,
-          mengkoordinasikan persiapan, logistik, dan penampilan tim.
-        </p>
-
-        <h3>Liaison Officer · Hardiknas Event In Indonesia Arena</h3>
-        <p class="meta">Angel House · Freelance · May 2024 · 1 bln · Central Jakarta</p>
-        <p>
-          Bertugas sebagai Liaison Officer pada peringatan Hari Pendidikan Nasional 2024
-          di Indonesia Arena. Mengelola koordinasi antar pihak, crowd control, dan
-          hubungan tamu undangan dalam acara berskala nasional.
-        </p>
-        <p class="meta">Skills: Event Planning · Crowd Control · Problem Solving · Teamwork · Guest Relations · Public Speaking</p>
-
-        <h3>School President · SMAN 15 Jakarta</h3>
-        <p class="meta">Aug 2022 – Sep 2023 · 1 thn 2 bln · North Jakarta · On-site</p>
-        <p>
-          Terpilih sebagai Ketua OSIS SMAN 15 Jakarta. Memimpin program kerja organisasi siswa,
-          mengkoordinasikan kegiatan sekolah, dan menjadi representasi siswa dalam forum
-          sekolah maupun luar sekolah.
-        </p>
-        <p class="meta">Skills: Leadership</p>
-      </article>
-
-    </div>
-
-    <aside id="profil" class="scroll-hidden">
-      <img src="assets/IMG_5764ok.jpg" alt="Foto Profil Joseph Farrel">
-      <h2>Joseph Farrel</h2>
-      <dl>
-        <dt>Universitas</dt>
-        <dd>IPB University</dd>
-        <dt>Jurusan</dt>
-        <dd>Fisika Teoretis & Matematika</dd>
-        <dt>Kota</dt>
-        <dd>North Jakarta, Indonesia</dd>
-        <dt>Status</dt>
-        <dd>Mahasiswa S1 (2024–2028)</dd>
-        <dt>Pronouns</dt>
-        <dd>He/Him</dd>
-      </dl>
-      <a href="https://www.linkedin.com/in/joseph-farrel-536947318/"
-         target="_blank"
-         rel="noopener"
-         class="btn-linkedin"
-         aria-label="Lihat profil LinkedIn Joseph Farrel">
-        🔗 LinkedIn Profile
-      </a>
-    </aside>
-
-    <section id="skills" aria-labelledby="skills-heading">
-      <h2 id="skills-heading">Keahlian</h2>
-      <div class="skill-item scroll-hidden">
-        <div class="skill-label">
-          <span>Web Development</span>
-          <span class="skill-pct" aria-hidden="true">80%</span>
-        </div>
-        <div class="skill-track">
-          <div class="skill-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" aria-label="Web Development: 80%" data-value="80" style="width: 0%"></div>
-        </div>
       </div>
-      <div class="skill-item scroll-hidden">
-        <div class="skill-label">
-          <span>SQL & Data Science</span>
-          <span class="skill-pct" aria-hidden="true">70%</span>
-        </div>
-        <div class="skill-track">
-          <div class="skill-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" aria-label="SQL & Data Science: 70%" data-value="70" style="width: 0%"></div>
-        </div>
-      </div>
-      <div class="skill-item scroll-hidden">
-        <div class="skill-label">
-          <span>Leadership & Organisasi</span>
-          <span class="skill-pct" aria-hidden="true">90%</span>
-        </div>
-        <div class="skill-track">
-          <div class="skill-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="Leadership: 90%" data-value="90" style="width: 0%"></div>
-        </div>
-      </div>
-      <div class="skill-item scroll-hidden">
-        <div class="skill-label">
-          <span>Event Planning</span>
-          <span class="skill-pct" aria-hidden="true">85%</span>
-        </div>
-        <div class="skill-track">
-          <div class="skill-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" aria-label="Event Planning: 85%" data-value="85" style="width: 0%"></div>
-        </div>
-      </div>
-      <div class="skill-item scroll-hidden">
-        <div class="skill-label">
-          <span>Public Speaking</span>
-          <span class="skill-pct" aria-hidden="true">85%</span>
-        </div>
-        <div class="skill-track">
-          <div class="skill-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" aria-label="Public Speaking: 85%" data-value="85" style="width: 0%"></div>
-        </div>
-      </div>
-      <div class="skill-item scroll-hidden">
-        <div class="skill-label">
-          <span>Theoretical Physics</span>
-          <span class="skill-pct" aria-hidden="true">75%</span>
-        </div>
-        <div class="skill-track">
-          <div class="skill-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" aria-label="Theoretical Physics: 75%" data-value="75" style="width: 0%"></div>
-        </div>
-      </div>
-    </section>
+    </header>
 
-    <section id="portofolio" aria-labelledby="portofolio-heading">
-      <h2 id="portofolio-heading">Portofolio</h2>
-      <div class="portfolio-grid" role="list">
-        <article class="project-card scroll-hidden" role="listitem">
-          <h3 class="project-name">Website Portofolio Pribadi</h3>
-          <p class="project-desc">Website portofolio interaktif yang dibangun dengan HTML, CSS, dan JavaScript vanilla. Menampilkan dark mode, animasi scroll, skill bars, dan form kontak terintegrasi Formspree.</p>
-          <div class="project-tags" aria-label="Teknologi yang digunakan">
-            <span class="tag">HTML</span>
-            <span class="tag">CSS</span>
-            <span class="tag">JavaScript</span>
-            <span class="tag">Vercel</span>
+    <!-- ===================== RIGHT CONTENT ===================== -->
+    <main id="content" class="content">
+
+      <!-- ===== ABOUT ===== -->
+      <section id="about" class="section" aria-label="About me">
+        <div class="section__header-sticky">
+          <h2 class="section__title">About</h2>
+        </div>
+        <div class="section__body">
+          <p>Halo! Saya <strong>Joseph Farrel</strong>, mahasiswa Bachelor of Science jurusan Fisika Teoretis dan Matematika di <strong>IPB University</strong>, Bogor (2024–2028). Saya berasal dari Jakarta Utara dan memiliki ketertarikan kuat pada pemrograman, sains data, dan pengembangan web.</p>
+          <p>Di luar kuliah, saya aktif di berbagai organisasi dan kegiatan kemahasiswaan, mulai dari kepemimpinan organisasi hingga event planning skala nasional. Saat ini saya sedang mempelajari <strong>Web Development</strong>, <strong>Data Science dengan Microsoft Fabric</strong>, pemrograman dengan <strong>Java</strong>, <strong>C</strong>, dan <strong>Haskell</strong>, serta pengembangan aplikasi dengan <strong>Microsoft Azure</strong>.</p>
+        </div>
+      </section>
+
+      <!-- ===== EXPERIENCE ===== -->
+      <section id="experience" class="section" aria-label="Work experience">
+        <div class="section__header-sticky">
+          <h2 class="section__title">Experience</h2>
+        </div>
+        <div class="section__body">
+          <ul class="card-list" role="list">
+            <!-- 1 -->
+            <li class="card-list__item">
+              <div class="card">
+                <div class="card__date" aria-label="January 2025 to November 2025">Jan 2025 — Nov 2025</div>
+                <div class="card__content">
+                  <h3 class="card__title">Head of Departemen Kajian dan Aksi Strategis · <span class="card__org">Eksekutif Ormawa PKU IPB</span></h3>
+                  <p class="card__desc">Memimpin departemen kajian dan aksi strategis di organisasi kemahasiswaan Eksekutif Ormawa PKU IPB. Bertanggung jawab atas perencanaan strategis, kajian kebijakan, dan pelaksanaan aksi mahasiswa.</p>
+                  <ul class="card__tags" aria-label="Technologies used">
+                    <li class="tag">Leadership</li>
+                    <li class="tag">Strategic Planning</li>
+                    <li class="tag">Policy Analysis</li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <!-- 2 -->
+            <li class="card-list__item">
+              <div class="card">
+                <div class="card__date" aria-label="January 2025 to November 2025">Jan 2025 — Nov 2025</div>
+                <div class="card__content">
+                  <h3 class="card__title">External Staff · <span class="card__org">Jakarta Community IPB</span></h3>
+                  <p class="card__desc">Berperan sebagai staf eksternal untuk komunitas Jakarta di IPB University, menghubungkan mahasiswa asal Jakarta dengan kegiatan kampus dan komunitas lokal.</p>
+                  <ul class="card__tags" aria-label="Technologies used">
+                    <li class="tag">Community Building</li>
+                    <li class="tag">Networking</li>
+                    <li class="tag">Communication</li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <!-- 3 -->
+            <li class="card-list__item">
+              <div class="card">
+                <div class="card__date" aria-label="March 2025 to October 2025">Mar 2025 — Oct 2025</div>
+                <div class="card__content">
+                  <h3 class="card__title">Head Of Jakarta Community Goes To Gebyar Nusantara 2025</h3>
+                  <p class="card__desc">Memimpin delegasi komunitas Jakarta IPB dalam event Gebyar Nusantara 2025, mengkoordinasikan persiapan, logistik, dan penampilan tim.</p>
+                  <ul class="card__tags" aria-label="Technologies used">
+                    <li class="tag">Event Planning</li>
+                    <li class="tag">Team Coordination</li>
+                    <li class="tag">Logistics</li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <!-- 4 -->
+            <li class="card-list__item">
+              <div class="card">
+                <div class="card__date" aria-label="May 2024">May 2024</div>
+                <div class="card__content">
+                  <h3 class="card__title">Liaison Officer · <span class="card__org">Hardiknas Event In Indonesia Arena · Angel House</span></h3>
+                  <p class="card__desc">Bertugas sebagai Liaison Officer pada peringatan Hari Pendidikan Nasional 2024 di Indonesia Arena. Mengelola koordinasi antar pihak, crowd control, dan hubungan tamu undangan dalam acara berskala nasional.</p>
+                  <ul class="card__tags" aria-label="Technologies used">
+                    <li class="tag">Event Planning</li>
+                    <li class="tag">Crowd Control</li>
+                    <li class="tag">Problem Solving</li>
+                    <li class="tag">Teamwork</li>
+                    <li class="tag">Guest Relations</li>
+                    <li class="tag">Public Speaking</li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <!-- 5 -->
+            <li class="card-list__item">
+              <div class="card">
+                <div class="card__date" aria-label="August 2022 to September 2023">Aug 2022 — Sep 2023</div>
+                <div class="card__content">
+                  <h3 class="card__title">School President · <span class="card__org">SMAN 15 Jakarta</span></h3>
+                  <p class="card__desc">Terpilih sebagai Ketua OSIS SMAN 15 Jakarta. Memimpin program kerja organisasi siswa, mengkoordinasikan kegiatan sekolah, dan menjadi representasi siswa dalam forum sekolah maupun luar sekolah.</p>
+                  <ul class="card__tags" aria-label="Technologies used">
+                    <li class="tag">Leadership</li>
+                    <li class="tag">Public Speaking</li>
+                    <li class="tag">Organizational Management</li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===== SKILLS ===== -->
+      <section id="skills" class="section" aria-label="Skills">
+        <div class="section__header-sticky">
+          <h2 class="section__title">Skills</h2>
+        </div>
+        <div class="section__body">
+          <!-- Industry Knowledge -->
+          <div class="skills-category">
+            <h3 class="skills-category__heading">Industry Knowledge</h3>
+            <ul class="skills-category__tags" aria-label="Industry knowledge skills">
+              <li class="tag">Theoretical Physics</li>
+              <li class="tag">SQL</li>
+              <li class="tag">Data Science</li>
+              <li class="tag">Visualisasi Data</li>
+              <li class="tag">AI Fundamentals</li>
+              <li class="tag">Project Management</li>
+            </ul>
           </div>
-          <a href="https://github.com/mitsuki-cyber165135/Submission-Akhir-Website-Dicoding" target="_blank" rel="noopener" class="project-link">Lihat di GitHub →</a>
-        </article>
-        <article class="project-card scroll-hidden" role="listitem">
-          <h3 class="project-name">Spec-Driven Development dengan Kiro</h3>
-          <p class="project-desc">Proyek pengembangan berbasis spesifikasi menggunakan Kiro AI sebagai asisten pengembangan. Sertifikasi dari Dicoding Indonesia.</p>
-          <div class="project-tags" aria-label="Teknologi yang digunakan">
-            <span class="tag">Kiro</span>
-            <span class="tag">Dicoding</span>
-            <span class="tag">Spec-Driven</span>
+          <!-- Tools & Technologies -->
+          <div class="skills-category">
+            <h3 class="skills-category__heading">Tools &amp; Technologies</h3>
+            <ul class="skills-category__tags" aria-label="Tools and technologies skills">
+              <li class="tag">HTML</li>
+              <li class="tag">CSS</li>
+              <li class="tag">JavaScript</li>
+              <li class="tag">Java</li>
+              <li class="tag">C</li>
+              <li class="tag">Haskell</li>
+              <li class="tag">SQL</li>
+              <li class="tag">Microsoft Azure</li>
+              <li class="tag">Microsoft Fabric</li>
+              <li class="tag">Git</li>
+              <li class="tag">Web Development</li>
+            </ul>
           </div>
-          <a href="https://www.linkedin.com/in/joseph-farrel-536947318/" target="_blank" rel="noopener" class="project-link">Lihat Sertifikat →</a>
-        </article>
-        <article class="project-card scroll-hidden" role="listitem">
-          <h3 class="project-name">Gebyar Nusantara 2025</h3>
-          <p class="project-desc">Memimpin delegasi Jakarta Community IPB dalam event budaya nasional Gebyar Nusantara 2025. Mengkoordinasikan tim, logistik, dan penampilan selama 8 bulan.</p>
-          <div class="project-tags" aria-label="Kategori">
-            <span class="tag">Leadership</span>
-            <span class="tag">Event</span>
-            <span class="tag">Nasional</span>
+          <!-- Interpersonal Skills -->
+          <div class="skills-category">
+            <h3 class="skills-category__heading">Interpersonal Skills</h3>
+            <ul class="skills-category__tags" aria-label="Interpersonal skills">
+              <li class="tag">Leadership</li>
+              <li class="tag">Event Planning</li>
+              <li class="tag">Problem Solving</li>
+              <li class="tag">Teamwork</li>
+              <li class="tag">Guest Relations</li>
+              <li class="tag">Crowd Control</li>
+              <li class="tag">Public Speaking</li>
+              <li class="tag">Communication</li>
+            </ul>
           </div>
-          <a href="https://www.linkedin.com/in/joseph-farrel-536947318/" target="_blank" rel="noopener" class="project-link">Lihat Detail →</a>
-        </article>
-      </div>
-    </section>
+        </div>
+      </section>
 
-    <section id="sertifikasi" aria-labelledby="sertifikasi-heading">
-      <h2 id="sertifikasi-heading">Lisensi &amp; Sertifikasi</h2>
-      <div class="cert-grid">
-        <div class="cert-item scroll-hidden">
-          <div class="cert-issuer">Dicoding Indonesia</div>
-          <div class="cert-name">Spec-Driven Development dengan Kiro</div>
+      <!-- ===== CERTIFICATIONS ===== -->
+      <section id="certifications" class="section" aria-label="Certifications">
+        <div class="section__header-sticky">
+          <h2 class="section__title">Certifications</h2>
         </div>
-        <div class="cert-item scroll-hidden">
-          <div class="cert-issuer">Dicoding Indonesia</div>
-          <div class="cert-name">Pemrograman dengan Haskell</div>
+        <div class="section__body">
+          <ul class="card-list" role="list">
+            <!-- Cert 1 -->
+            <li class="card-list__item">
+              <div class="card card--cert">
+                <div class="card__date">Oct 2026 — Oct 2029</div>
+                <div class="card__content">
+                  <p class="card__issuer">Dicoding Indonesia</p>
+                  <h3 class="card__title">Spec-Driven Development dengan Kiro</h3>
+                  <p class="card__credential">Credential ID: 07Z6Q019MZQR</p>
+                  <a class="card__link" href="https://www.dicoding.com/certificates/07Z6Q019MZQR" target="_blank" rel="noopener noreferrer">
+                    Show credential
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="14" height="14" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"/></svg>
+                  </a>
+                </div>
+              </div>
+            </li>
+            <!-- Cert 2 -->
+            <li class="card-list__item">
+              <div class="card card--cert">
+                <div class="card__date">Oct 2026 — Oct 2029</div>
+                <div class="card__content">
+                  <p class="card__issuer">Dicoding Indonesia</p>
+                  <h3 class="card__title">Pemrograman dengan Haskell</h3>
+                  <p class="card__credential">Credential ID: N9ZO0M06YXG5</p>
+                  <a class="card__link" href="https://www.dicoding.com/certificates/N9ZO0M06YXG5" target="_blank" rel="noopener noreferrer">
+                    Show credential
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="14" height="14" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"/></svg>
+                  </a>
+                </div>
+              </div>
+            </li>
+            <!-- Cert 3 -->
+            <li class="card-list__item">
+              <div class="card card--cert">
+                <div class="card__date">Oct 2026 — Oct 2029</div>
+                <div class="card__content">
+                  <p class="card__issuer">Dicoding Indonesia</p>
+                  <h3 class="card__title">Manajemen Proyek</h3>
+                  <p class="card__credential">Credential ID: MEPJMY4L6P3V</p>
+                  <a class="card__link" href="https://www.dicoding.com/certificates/MEPJMY4L6P3V" target="_blank" rel="noopener noreferrer">
+                    Show credential
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="14" height="14" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"/></svg>
+                  </a>
+                </div>
+              </div>
+            </li>
+            <!-- Cert 4 -->
+            <li class="card-list__item">
+              <div class="card card--cert">
+                <div class="card__date">Oct 2026 — Oct 2029</div>
+                <div class="card__content">
+                  <p class="card__issuer">Dicoding Indonesia</p>
+                  <h3 class="card__title">Pemrograman Dengan C</h3>
+                  <p class="card__credential">Credential ID: 1OP87NQL1ZQK</p>
+                  <a class="card__link" href="https://www.dicoding.com/certificates/1OP87NQL1ZQK" target="_blank" rel="noopener noreferrer">
+                    Show credential
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="14" height="14" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"/></svg>
+                  </a>
+                </div>
+              </div>
+            </li>
+            <!-- Cert 5 -->
+            <li class="card-list__item">
+              <div class="card card--cert">
+                <div class="card__date">Oct 2026 — Oct 2029</div>
+                <div class="card__content">
+                  <p class="card__issuer">Dicoding Indonesia</p>
+                  <h3 class="card__title">Pemrograman Dengan Java</h3>
+                  <p class="card__credential">Credential ID: EYX4O0W2WXDL</p>
+                  <a class="card__link" href="https://www.dicoding.com/certificates/EYX4O0W2WXDL" target="_blank" rel="noopener noreferrer">
+                    Show credential
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="14" height="14" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"/></svg>
+                  </a>
+                </div>
+              </div>
+            </li>
+            <!-- Cert 6 -->
+            <li class="card-list__item">
+              <div class="card card--cert">
+                <div class="card__date">Sep 2026 — Sep 2029</div>
+                <div class="card__content">
+                  <p class="card__issuer">Dicoding Indonesia</p>
+                  <h3 class="card__title">Membangun Aplikasi Gen AI dengan Microsoft Azure</h3>
+                  <p class="card__credential">Credential ID: NVP7W763RZR0</p>
+                  <a class="card__link" href="https://www.dicoding.com/certificates/NVP7W763RZR0" target="_blank" rel="noopener noreferrer">
+                    Show credential
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="14" height="14" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"/></svg>
+                  </a>
+                </div>
+              </div>
+            </li>
+            <!-- Cert 7 -->
+            <li class="card-list__item">
+              <div class="card card--cert">
+                <div class="card__date">Sep 2026 — Sep 2029</div>
+                <div class="card__content">
+                  <p class="card__issuer">Dicoding Indonesia</p>
+                  <h3 class="card__title">Penerapan Data Science dengan Microsoft Fabric</h3>
+                  <p class="card__credential">Credential ID: 53XEMY9N0PRN</p>
+                  <a class="card__link" href="https://www.dicoding.com/certificates/53XEMY9N0PRN" target="_blank" rel="noopener noreferrer">
+                    Show credential
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="14" height="14" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"/></svg>
+                  </a>
+                </div>
+              </div>
+            </li>
+            <!-- Cert 8 -->
+            <li class="card-list__item">
+              <div class="card card--cert">
+                <div class="card__date">Sep 2026 — Sep 2029</div>
+                <div class="card__content">
+                  <p class="card__issuer">Dicoding Indonesia</p>
+                  <h3 class="card__title">Pemrograman Web</h3>
+                  <p class="card__credential">Credential ID: ERZR7WWQNZYV</p>
+                  <a class="card__link" href="https://www.dicoding.com/certificates/ERZR7WWQNZYV" target="_blank" rel="noopener noreferrer">
+                    Show credential
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="14" height="14" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"/></svg>
+                  </a>
+                </div>
+              </div>
+            </li>
+            <!-- Cert 9 -->
+            <li class="card-list__item">
+              <div class="card card--cert">
+                <div class="card__date">Sep 2026 — Sep 2029</div>
+                <div class="card__content">
+                  <p class="card__issuer">Dicoding Indonesia</p>
+                  <h3 class="card__title">Pemrograman untuk Menjadi Pengembang Software</h3>
+                  <p class="card__credential">Credential ID: EYX4O06OWXDL</p>
+                  <a class="card__link" href="https://www.dicoding.com/certificates/EYX4O06OWXDL" target="_blank" rel="noopener noreferrer">
+                    Show credential
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="14" height="14" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"/></svg>
+                  </a>
+                </div>
+              </div>
+            </li>
+            <!-- Cert 10 -->
+            <li class="card-list__item">
+              <div class="card card--cert">
+                <div class="card__date">Sep 2026 — Sep 2029</div>
+                <div class="card__content">
+                  <p class="card__issuer">Google for Education</p>
+                  <h3 class="card__title">Siswa Tersertifikasi Gemini - Universitas</h3>
+                  <p class="card__credential">Credential ID: 195044568</p>
+                  <a class="card__link" href="https://edu.google.accredible.com/7521a53d-8771-48c4-bfa7-0bcfa4600e73" target="_blank" rel="noopener noreferrer">
+                    Show credential
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="14" height="14" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"/></svg>
+                  </a>
+                </div>
+              </div>
+            </li>
+            <!-- Cert 11 -->
+            <li class="card-list__item">
+              <div class="card card--cert">
+                <div class="card__date">Sep 2026 — Sep 2029</div>
+                <div class="card__content">
+                  <p class="card__issuer">Dicoding Indonesia</p>
+                  <h3 class="card__title">Dasar AI</h3>
+                  <p class="card__credential">Credential ID: 1RXYD1MYMXVM</p>
+                  <a class="card__link" href="https://www.dicoding.com/certificates/1RXYD1MYMXVM" target="_blank" rel="noopener noreferrer">
+                    Show credential
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="14" height="14" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"/></svg>
+                  </a>
+                </div>
+              </div>
+            </li>
+            <!-- Cert 12 -->
+            <li class="card-list__item">
+              <div class="card card--cert">
+                <div class="card__date">Sep 2026 — Sep 2029</div>
+                <div class="card__content">
+                  <p class="card__issuer">Dicoding Indonesia</p>
+                  <h3 class="card__title">Visualisasi Data</h3>
+                  <p class="card__credential">Credential ID: EYX4O024JXDL</p>
+                  <a class="card__link" href="https://www.dicoding.com/certificates/EYX4O024JXDL" target="_blank" rel="noopener noreferrer">
+                    Show credential
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="14" height="14" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"/></svg>
+                  </a>
+                </div>
+              </div>
+            </li>
+            <!-- Cert 13 -->
+            <li class="card-list__item">
+              <div class="card card--cert">
+                <div class="card__date">Sep 2026 — Sep 2029</div>
+                <div class="card__content">
+                  <p class="card__issuer">Dicoding Indonesia</p>
+                  <h3 class="card__title">Structured Query Language (SQL)</h3>
+                  <p class="card__credential">Credential ID: JMZVL104OXN9</p>
+                  <a class="card__link" href="https://www.dicoding.com/certificates/JMZVL104OXN9" target="_blank" rel="noopener noreferrer">
+                    Show credential
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="14" height="14" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"/></svg>
+                  </a>
+                </div>
+              </div>
+            </li>
+            <!-- Cert 14 -->
+            <li class="card-list__item">
+              <div class="card card--cert">
+                <div class="card__date">Sep 2026 — Sep 2029</div>
+                <div class="card__content">
+                  <p class="card__issuer">Dicoding Indonesia</p>
+                  <h3 class="card__title">Data Science</h3>
+                  <p class="card__credential">Credential ID: 6RPNO4L55X2M</p>
+                  <a class="card__link" href="https://www.dicoding.com/certificates/6RPNO4L55X2M" target="_blank" rel="noopener noreferrer">
+                    Show credential
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="14" height="14" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"/></svg>
+                  </a>
+                </div>
+              </div>
+            </li>
+          </ul>
         </div>
-        <div class="cert-item scroll-hidden">
-          <div class="cert-issuer">Dicoding Indonesia</div>
-          <div class="cert-name">Manajemen Proyek</div>
-        </div>
-        <div class="cert-item scroll-hidden">
-          <div class="cert-issuer">Dicoding Indonesia</div>
-          <div class="cert-name">Pemrograman Dengan C</div>
-        </div>
-        <div class="cert-item scroll-hidden">
-          <div class="cert-issuer">Dicoding Indonesia</div>
-          <div class="cert-name">Pemrograman Dengan Java</div>
-        </div>
-        <div class="cert-item scroll-hidden">
-          <div class="cert-issuer">Dicoding Indonesia</div>
-          <div class="cert-name">Membangun Aplikasi Gen AI dengan Microsoft Azure</div>
-        </div>
-        <div class="cert-item scroll-hidden">
-          <div class="cert-issuer">Dicoding Indonesia</div>
-          <div class="cert-name">Penerapan Data Science dengan Microsoft Fabric</div>
-        </div>
-        <div class="cert-item scroll-hidden">
-          <div class="cert-issuer">Dicoding Indonesia</div>
-          <div class="cert-name">Pemrograman Web</div>
-        </div>
-        <div class="cert-item scroll-hidden">
-          <div class="cert-issuer">Dicoding Indonesia</div>
-          <div class="cert-name">Pemrograman untuk Menjadi Pengembang Software</div>
-        </div>
-        <div class="cert-item scroll-hidden">
-          <div class="cert-issuer">Dicoding Indonesia</div>
-          <div class="cert-name">Visualisasi Data</div>
-        </div>
-        <div class="cert-item scroll-hidden">
-          <div class="cert-issuer">Dicoding Indonesia</div>
-          <div class="cert-name">Dasar AI</div>
-        </div>
-        <div class="cert-item scroll-hidden">
-          <div class="cert-issuer">Taught for You — Narendracita</div>
-          <div class="cert-name">Siswa Teridentifikasi Genius - Universitas</div>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="timeline" aria-labelledby="timeline-heading">
-      <h2 id="timeline-heading">Pendidikan</h2>
-      <ol class="timeline-list" aria-label="Riwayat pendidikan">
-        <li class="timeline-entry scroll-hidden">
-          <div class="timeline-dot" aria-hidden="true"></div>
-          <div class="timeline-content">
-            <time class="timeline-year" datetime="2024">2024 – 2028</time>
-            <h3 class="timeline-title">IPB University</h3>
-            <p class="timeline-desc">Bachelor of Science (BS) · Fisika Teoretis dan Matematika · Bogor, Indonesia. Fokus pada fisika komputasi, pemodelan matematika, dan pengembangan teknologi.</p>
-          </div>
-        </li>
-        <li class="timeline-entry scroll-hidden">
-          <div class="timeline-dot" aria-hidden="true"></div>
-          <div class="timeline-content">
-            <time class="timeline-year" datetime="2021">2021 – 2024</time>
-            <h3 class="timeline-title">SMA Negeri 15 Jakarta</h3>
-            <p class="timeline-desc">High School Diploma · Matematika dan IPA · North Jakarta. Menjabat sebagai Ketua OSIS periode 2022–2023 dan aktif dalam berbagai kegiatan ekstrakurikuler.</p>
-          </div>
-        </li>
-      </ol>
-    </section>
-
-    <section id="kontak" aria-labelledby="kontak-heading">
-      <h2 id="kontak-heading">Kontak</h2>
-      <p style="margin-bottom: 20px; color: var(--ink);">
-        Tertarik untuk berkolaborasi atau sekadar ngobrol? Kirim pesan atau hubungi saya lewat
-        <a href="https://www.linkedin.com/in/joseph-farrel-536947318/" target="_blank" rel="noopener" style="color: var(--moss); font-weight: 600;">LinkedIn</a>.
-      </p>
-      <form id="contact-form" novalidate>
-        <div class="form-group">
-          <label for="contact-name">Nama</label>
-          <input type="text" id="contact-name" name="name" required autocomplete="name" aria-describedby="error-name">
-          <span class="form-error" id="error-name" role="alert" aria-live="polite"></span>
+      <!-- ===== PROJECTS ===== -->
+      <section id="projects" class="section" aria-label="Projects">
+        <div class="section__header-sticky">
+          <h2 class="section__title">Projects</h2>
         </div>
-        <div class="form-group">
-          <label for="contact-email">Email</label>
-          <input type="email" id="contact-email" name="email" required autocomplete="email" aria-describedby="error-email">
-          <span class="form-error" id="error-email" role="alert" aria-live="polite"></span>
+        <div class="section__body">
+          <ul class="card-list" role="list">
+            <!-- Project 1 -->
+            <li class="card-list__item">
+              <div class="card">
+                <div class="card__date">2025</div>
+                <div class="card__content">
+                  <h3 class="card__title">
+                    <a class="card__title-link" href="https://github.com/mitsuki-cyber165135/Submission-Akhir-Website-Dicoding" target="_blank" rel="noopener noreferrer">
+                      Website Portofolio Pribadi
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="14" height="14" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"/></svg>
+                    </a>
+                  </h3>
+                  <p class="card__desc">Website portofolio interaktif yang dibangun dengan HTML, CSS, dan JavaScript vanilla. Menampilkan dark mode, animasi scroll, dan form kontak.</p>
+                  <ul class="card__tags" aria-label="Technologies used">
+                    <li class="tag">HTML</li>
+                    <li class="tag">CSS</li>
+                    <li class="tag">JavaScript</li>
+                    <li class="tag">Vercel</li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <!-- Project 2 -->
+            <li class="card-list__item">
+              <div class="card">
+                <div class="card__date">2025</div>
+                <div class="card__content">
+                  <h3 class="card__title">Gebyar Nusantara 2025</h3>
+                  <p class="card__desc">Memimpin delegasi Jakarta Community IPB dalam event budaya nasional Gebyar Nusantara 2025.</p>
+                  <ul class="card__tags" aria-label="Technologies used">
+                    <li class="tag">Leadership</li>
+                    <li class="tag">Event</li>
+                    <li class="tag">Nasional</li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+          </ul>
         </div>
-        <div class="form-group">
-          <label for="contact-message">Pesan</label>
-          <textarea id="contact-message" name="message" required rows="5" aria-describedby="error-message"></textarea>
-          <span class="form-error" id="error-message" role="alert" aria-live="polite"></span>
+      </section>
+
+      <!-- ===== EDUCATION ===== -->
+      <section id="education" class="section" aria-label="Education">
+        <div class="section__header-sticky">
+          <h2 class="section__title">Education</h2>
         </div>
-        <button type="submit" class="btn-submit">Kirim Pesan</button>
-        <p class="form-success" id="form-success" role="status" aria-live="polite" hidden>
-          Pesan terkirim! Terima kasih sudah menghubungi.
-        </p>
-      </form>
-    </section>
+        <div class="section__body">
+          <ul class="card-list" role="list">
+            <!-- Edu 1 -->
+            <li class="card-list__item">
+              <div class="card">
+                <div class="card__date" aria-label="2024 to 2028">2024 — 2028</div>
+                <div class="card__content">
+                  <h3 class="card__title">IPB University</h3>
+                  <p class="card__desc">Bachelor of Science (BS) · Fisika Teoretis dan Matematika · Bogor, Indonesia</p>
+                </div>
+              </div>
+            </li>
+            <!-- Edu 2 -->
+            <li class="card-list__item">
+              <div class="card">
+                <div class="card__date" aria-label="2021 to 2024">2021 — 2024</div>
+                <div class="card__content">
+                  <h3 class="card__title">SMA Negeri 15 Jakarta</h3>
+                  <p class="card__desc">High School Diploma · Matematika dan IPA · North Jakarta. Ketua OSIS periode 2022–2023.</p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
 
-  </main>
+      <!-- ===== CONTACT ===== -->
+      <section id="contact" class="section" aria-label="Contact">
+        <div class="section__header-sticky">
+          <h2 class="section__title">Contact</h2>
+        </div>
+        <div class="section__body">
+          <p class="contact__intro">Tertarik untuk berkolaborasi atau ingin sekadar menyapa? Jangan ragu untuk mengirim pesan melalui form di bawah ini atau hubungi saya melalui <a href="https://www.linkedin.com/in/joseph-farrel-536947318/" target="_blank" rel="noopener noreferrer">LinkedIn</a>.</p>
+          <form class="contact-form" action="https://formspree.io/f/mkjoevqv" method="POST">
+            <div class="contact-form__group">
+              <label for="contact-name" class="contact-form__label">Name</label>
+              <input type="text" id="contact-name" name="name" class="contact-form__input" required autocomplete="name" />
+            </div>
+            <div class="contact-form__group">
+              <label for="contact-email" class="contact-form__label">Email</label>
+              <input type="email" id="contact-email" name="email" class="contact-form__input" required autocomplete="email" />
+            </div>
+            <div class="contact-form__group">
+              <label for="contact-message" class="contact-form__label">Message</label>
+              <textarea id="contact-message" name="message" class="contact-form__textarea" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="contact-form__button">Send Message</button>
+          </form>
+        </div>
+      </section>
 
-  <footer>
-    <p>
-      &copy; 2025 Joseph Farrel ·
-      <a href="https://www.linkedin.com/in/joseph-farrel-536947318/" target="_blank" rel="noopener" style="color: #c3d0c9;">LinkedIn</a>
-      · IPB University
-    </p>
-  </footer>
+      <!-- ===== FOOTER ===== -->
+      <footer class="footer">
+        <p>Built with ♥ by <a href="https://www.linkedin.com/in/joseph-farrel-536947318/" target="_blank" rel="noopener noreferrer">Joseph Farrel</a>.</p>
+        <p class="footer__note">Design loosely inspired by <a href="https://brittanychiang.com" target="_blank" rel="noopener noreferrer">Brittany Chiang</a>.</p>
+      </footer>
+    </main>
+  </div>
 
+  <!-- Scripts -->
   <script src="assets/main.js" defer></script>
 </body>
 </html>

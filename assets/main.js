@@ -1,339 +1,360 @@
-﻿// assets/main.js
+/**
+ * main.js — Brittany Chiang-inspired portfolio
+ * Vanilla JS · No frameworks · Production-ready
+ */
 (function () {
   'use strict';
 
-  function validateEmail(email) {
-    if (typeof email !== 'string') return false;
-    var atIndex = email.indexOf('@');
-    if (atIndex < 0) return false;
-    var domain = email.slice(atIndex + 1);
-    return domain.indexOf('.') >= 0;
+  /* ------------------------------------------------------------------ */
+  /*  Utility helpers                                                    */
+  /* ------------------------------------------------------------------ */
+
+  /**
+   * Returns true when the user has NOT requested reduced motion.
+   */
+  function motionAllowed() {
+    return !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   }
 
-  function validateNotEmpty(str) {
-    if (typeof str !== 'string') return false;
-    return str.trim() !== '';
+  /**
+   * Simple non-empty string validation.
+   * @param {string} value
+   * @returns {boolean}
+   */
+  function validateNotEmpty(value) {
+    return typeof value === 'string' && value.trim().length > 0;
   }
 
-  function initDarkMode() {
-    var btn = document.getElementById('theme-toggle-btn');
-    if (!btn) return;
+  /**
+   * Basic email validation — must contain "@" and the domain part must
+   * include at least one dot.
+   * @param {string} value
+   * @returns {boolean}
+   */
+  function validateEmail(value) {
+    if (typeof value !== 'string') return false;
+    var trimmed = value.trim();
+    var atIndex = trimmed.indexOf('@');
+    if (atIndex < 1) return false; // must have something before @
+    var domain = trimmed.slice(atIndex + 1);
+    // domain must have at least one dot and something after it
+    var dotIndex = domain.indexOf('.');
+    return dotIndex > 0 && dotIndex < domain.length - 1;
+  }
 
-    function updateToggleLabel(theme) {
-      if (theme === 'dark') {
-        btn.setAttribute('aria-label', 'Aktifkan light mode');
-      } else {
-        btn.setAttribute('aria-label', 'Aktifkan dark mode');
-      }
-    }
+  // Expose validators for testing
+  window._validateEmail = validateEmail;
+  window._validateNotEmpty = validateNotEmpty;
 
-    var currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-    updateToggleLabel(currentTheme);
+  /* ------------------------------------------------------------------ */
+  /*  1. Mouse Spotlight Effect                                          */
+  /* ------------------------------------------------------------------ */
 
-    btn.addEventListener('click', function () {
-      var theme = document.documentElement.getAttribute('data-theme');
-      var nextTheme = theme === 'dark' ? 'light' : 'dark';
-      document.documentElement.setAttribute('data-theme', nextTheme);
-      try {
-        localStorage.setItem('theme', nextTheme);
-      } catch (e) {
-        // SecurityError in private browsing
-      }
-      updateToggleLabel(nextTheme);
+  function initSpotlight() {
+    var wrapper = document.querySelector('.spotlight-wrapper');
+    var overlay = document.querySelector('.spotlight-overlay');
+    if (!wrapper || !overlay) return;
+
+    var lgMin = 1024; // desktop breakpoint
+
+    wrapper.addEventListener('mousemove', function (e) {
+      if (window.innerWidth < lgMin) return;
+
+      var rect = wrapper.getBoundingClientRect();
+      var x = e.clientX - rect.left;
+      var y = e.clientY - rect.top;
+
+      overlay.style.setProperty('--mouse-x', x + 'px');
+      overlay.style.setProperty('--mouse-y', y + 'px');
     });
   }
 
-  function initNavbar() {
-    var navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+  /* ------------------------------------------------------------------ */
+  /*  2. Scroll-based Navigation Highlighting                            */
+  /* ------------------------------------------------------------------ */
+
+  function initNavHighlighting() {
+    if (typeof IntersectionObserver === 'undefined') return;
+
+    var navLinks = document.querySelectorAll('.sidebar-nav a[href^="#"]');
     if (!navLinks.length) return;
 
-    var sectionIds = [];
+    // Build a map from section id → link element
+    var linkMap = {};
     navLinks.forEach(function (link) {
-      var id = link.getAttribute('href').slice(1);
-      if (id) sectionIds.push(id);
+      var id = link.getAttribute('href').replace('#', '');
+      if (id) linkMap[id] = link;
     });
 
+    var sectionIds = Object.keys(linkMap);
     var sections = sectionIds
-      .map(function (id) { return document.getElementById(id); })
+      .map(function (id) {
+        return document.getElementById(id);
+      })
       .filter(Boolean);
 
     if (!sections.length) return;
 
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
           var id = entry.target.id;
-          navLinks.forEach(function (link) {
-            if (link.getAttribute('href') === '#' + id) {
-              link.classList.add('active');
-            } else {
-              link.classList.remove('active');
-            }
-          });
-        }
-      });
-    }, {
-      rootMargin: '-40% 0px -55% 0px'
-    });
+          var link = linkMap[id];
+          if (!link) return;
+
+          if (entry.isIntersecting) {
+            // Remove active from all links first
+            navLinks.forEach(function (l) {
+              l.classList.remove('active');
+            });
+            link.classList.add('active');
+          }
+        });
+      },
+      {
+        rootMargin: '-20% 0px -70% 0px',
+      }
+    );
 
     sections.forEach(function (section) {
       observer.observe(section);
     });
   }
 
-  function initHamburger() {
-    var btn = document.getElementById('hamburger-btn');
-    var nav = document.getElementById('main-nav');
-    var navLinks = document.getElementById('nav-links');
-    if (!btn || !nav || !navLinks) return;
-
-    function openMenu() {
-      nav.classList.add('nav-open');
-      btn.setAttribute('aria-expanded', 'true');
-    }
-
-    function closeMenu() {
-      nav.classList.remove('nav-open');
-      btn.setAttribute('aria-expanded', 'false');
-    }
-
-    function toggleMenu() {
-      if (nav.classList.contains('nav-open')) {
-        closeMenu();
-      } else {
-        openMenu();
-      }
-    }
-
-    btn.addEventListener('click', function (e) {
-      e.stopPropagation();
-      toggleMenu();
-    });
-
-    navLinks.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('click', function () {
-        closeMenu();
-      });
-    });
-
-    document.addEventListener('click', function (e) {
-      if (nav.classList.contains('nav-open') && !nav.contains(e.target)) {
-        closeMenu();
-      }
-    });
-  }
+  /* ------------------------------------------------------------------ */
+  /*  3. Smooth Scroll                                                   */
+  /* ------------------------------------------------------------------ */
 
   function initSmoothScroll() {
-    var nav = document.getElementById('main-nav');
+    var anchors = document.querySelectorAll('a[href^="#"]');
+    if (!anchors.length) return;
 
-    document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+    anchors.forEach(function (anchor) {
       anchor.addEventListener('click', function (e) {
-        var targetId = anchor.getAttribute('href').slice(1);
-        if (!targetId) return;
-        var target = document.getElementById(targetId);
+        var href = anchor.getAttribute('href');
+        if (!href || href === '#') return;
+
+        var target = document.querySelector(href);
         if (!target) return;
 
         e.preventDefault();
 
-        var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        var navHeight = nav ? nav.getBoundingClientRect().height : 0;
-        var targetTop = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
-
-        window.scrollTo({
-          top: targetTop,
-          behavior: prefersReduced ? 'instant' : 'smooth'
-        });
+        var behavior = motionAllowed() ? 'smooth' : 'instant';
+        target.scrollIntoView({ behavior: behavior });
       });
     });
   }
 
-  function initScrollAnimation() {
-    var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* ------------------------------------------------------------------ */
+  /*  4. Scroll Reveal Animation                                         */
+  /* ------------------------------------------------------------------ */
 
-    if (prefersReduced) {
-      document.querySelectorAll('.scroll-hidden').forEach(function (el) {
-        el.classList.remove('scroll-hidden');
-        el.classList.add('scroll-visible');
+  function initScrollReveal() {
+    if (typeof IntersectionObserver === 'undefined') return;
+
+    var items = document.querySelectorAll('.scroll-reveal');
+    if (!items.length) return;
+
+    // If reduced motion, reveal everything immediately
+    if (!motionAllowed()) {
+      items.forEach(function (el) {
+        el.classList.add('revealed');
       });
       return;
     }
 
-    var targets = document.querySelectorAll('article, .project-card, .timeline-entry, aside');
+    // Group items by their parent section for stagger calculation
+    var sectionMap = new Map();
 
-    if (!('IntersectionObserver' in window)) {
-      targets.forEach(function (el) {
-        el.classList.remove('scroll-hidden');
-        el.classList.add('scroll-visible');
-      });
-      return;
-    }
-
-    var observer = new IntersectionObserver(function (entries, obs) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('scroll-visible');
-          obs.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.15
+    items.forEach(function (el) {
+      // Find the closest section (or parent with an ID, or direct parent)
+      var section = el.closest('section') || el.parentElement;
+      if (!sectionMap.has(section)) {
+        sectionMap.set(section, []);
+      }
+      sectionMap.get(section).push(el);
     });
 
-    targets.forEach(function (el) {
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+
+          var el = entry.target;
+          var section = el.closest('section') || el.parentElement;
+          var siblings = sectionMap.get(section) || [el];
+          var index = siblings.indexOf(el);
+          if (index < 0) index = 0;
+
+          el.style.transitionDelay = index * 50 + 'ms';
+          el.classList.add('revealed');
+          observer.unobserve(el);
+        });
+      },
+      {
+        threshold: 0.1,
+      }
+    );
+
+    items.forEach(function (el) {
       observer.observe(el);
     });
   }
 
-  function initSkillBars() {
-    var skillItems = document.querySelectorAll('.skill-item');
-    if (!skillItems.length) return;
-
-    function animateBar(item) {
-      var bar = item.querySelector('.skill-bar');
-      if (!bar) return;
-      var rawValue = bar.getAttribute('data-value');
-      var value = parseInt(rawValue, 10);
-      if (isNaN(value) || value < 0 || value > 100) {
-        value = 0;
-      }
-      bar.style.width = value + '%';
-      bar.setAttribute('aria-valuenow', String(value));
-    }
-
-    var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    if (prefersReduced) {
-      skillItems.forEach(function (item) {
-        var bar = item.querySelector('.skill-bar');
-        if (bar) bar.style.transition = 'none';
-        animateBar(item);
-      });
-      return;
-    }
-
-    if (!('IntersectionObserver' in window)) {
-      skillItems.forEach(function (item) { animateBar(item); });
-      return;
-    }
-
-    var observer = new IntersectionObserver(function (entries, obs) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          animateBar(entry.target);
-          obs.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.3
-    });
-
-    skillItems.forEach(function (item) {
-      observer.observe(item);
-    });
-  }
+  /* ------------------------------------------------------------------ */
+  /*  5. Contact Form with Formspree                                     */
+  /* ------------------------------------------------------------------ */
 
   function initContactForm() {
     var form = document.getElementById('contact-form');
     if (!form) return;
 
-    var nameInput    = document.getElementById('contact-name');
-    var emailInput   = document.getElementById('contact-email');
-    var messageInput = document.getElementById('contact-message');
-    var errorName    = document.getElementById('error-name');
-    var errorEmail   = document.getElementById('error-email');
-    var errorMessage = document.getElementById('error-message');
-    var successMsg   = document.getElementById('form-success');
-
     var FORMSPREE_ENDPOINT = 'https://formspree.io/f/mkjoevqv';
 
-    function clearErrors() {
-      [nameInput, emailInput, messageInput].forEach(function (input) {
-        input.removeAttribute('aria-invalid');
-      });
-      [errorName, errorEmail, errorMessage].forEach(function (span) {
-        if (span) span.textContent = '';
-      });
+    var nameInput = form.querySelector('[name="contact-name"]');
+    var emailInput = form.querySelector('[name="contact-email"]');
+    var messageInput = form.querySelector('[name="contact-message"]');
+    var submitBtn = form.querySelector('button[type="submit"]');
+
+    // Locate or create a status message container
+    var statusEl = form.querySelector('.form-status');
+    if (!statusEl) {
+      statusEl = document.createElement('div');
+      statusEl.className = 'form-status';
+      statusEl.setAttribute('role', 'alert');
+      statusEl.setAttribute('aria-live', 'polite');
+      form.appendChild(statusEl);
     }
 
-    function showError(input, span, message) {
-      input.setAttribute('aria-invalid', 'true');
-      if (span) span.textContent = message;
+    /**
+     * Show / clear a field-level error.
+     * @param {HTMLElement} input
+     * @param {string} message  — empty string to clear
+     */
+    function setFieldError(input, message) {
+      if (!input) return;
+      var wrapper = input.closest('.form-group') || input.parentElement;
+      var errorSpan = wrapper ? wrapper.querySelector('.form-error') : null;
+
+      if (message) {
+        input.setAttribute('aria-invalid', 'true');
+        if (errorSpan) errorSpan.textContent = message;
+      } else {
+        input.removeAttribute('aria-invalid');
+        if (errorSpan) errorSpan.textContent = '';
+      }
+    }
+
+    /**
+     * Validate all fields. Returns true when everything is valid.
+     */
+    function validateForm() {
+      var valid = true;
+
+      if (!validateNotEmpty(nameInput ? nameInput.value : '')) {
+        setFieldError(nameInput, 'Nama tidak boleh kosong.');
+        valid = false;
+      } else {
+        setFieldError(nameInput, '');
+      }
+
+      if (!validateEmail(emailInput ? emailInput.value : '')) {
+        setFieldError(emailInput, 'Masukkan alamat email yang valid.');
+        valid = false;
+      } else {
+        setFieldError(emailInput, '');
+      }
+
+      if (!validateNotEmpty(messageInput ? messageInput.value : '')) {
+        setFieldError(messageInput, 'Pesan tidak boleh kosong.');
+        valid = false;
+      } else {
+        setFieldError(messageInput, '');
+      }
+
+      return valid;
     }
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      clearErrors();
-      if (successMsg) successMsg.setAttribute('hidden', '');
+      statusEl.textContent = '';
+      statusEl.className = 'form-status';
 
-      var nameVal    = nameInput    ? nameInput.value    : '';
-      var emailVal   = emailInput   ? emailInput.value   : '';
-      var messageVal = messageInput ? messageInput.value : '';
+      if (!validateForm()) return;
 
-      var isValid = true;
-
-      if (!validateNotEmpty(nameVal)) {
-        showError(nameInput, errorName, 'Nama tidak boleh kosong.');
-        isValid = false;
-      }
-      if (!validateEmail(emailVal)) {
-        showError(emailInput, errorEmail, 'Masukkan alamat email yang valid.');
-        isValid = false;
-      }
-      if (!validateNotEmpty(messageVal)) {
-        showError(messageInput, errorMessage, 'Pesan tidak boleh kosong.');
-        isValid = false;
-      }
-
-      if (!isValid) return;
-
-      var submitBtn = form.querySelector('.btn-submit');
+      // Disable button & show loading state
       if (submitBtn) {
         submitBtn.disabled = true;
+        submitBtn.dataset.originalText = submitBtn.textContent;
         submitBtn.textContent = 'Mengirim...';
       }
 
+      var payload = {
+        name: nameInput ? nameInput.value.trim() : '',
+        email: emailInput ? emailInput.value.trim() : '',
+        message: messageInput ? messageInput.value.trim() : '',
+      };
+
       fetch(FORMSPREE_ENDPOINT, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({ name: nameVal, email: emailVal, message: messageVal })
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify(payload),
       })
-      .then(function (response) {
-        if (response.ok) {
+        .then(function (response) {
+          if (!response.ok) {
+            throw new Error('Server responded with ' + response.status);
+          }
+          return response.json();
+        })
+        .then(function () {
+          // Success
           form.reset();
-          clearErrors();
-          if (successMsg) successMsg.removeAttribute('hidden');
-        } else {
-          response.json().catch(function () { return {}; }).then(function (data) {
-            var msg = (data && data.errors && data.errors[0] && data.errors[0].message)
-              ? data.errors[0].message
-              : 'Pengiriman gagal (status ' + response.status + '). Coba beberapa saat lagi.';
-            showError(emailInput, errorEmail, msg);
-          });
-        }
-      })
-      .catch(function () {
-        showError(emailInput, errorEmail, 'Gagal terhubung ke server. Periksa koneksi internet kamu.');
-      })
-      .then(function () {
-        if (submitBtn) {
-          submitBtn.disabled = false;
-          submitBtn.textContent = 'Kirim Pesan';
-        }
-      });
+          statusEl.textContent = 'Pesan berhasil dikirim! Terima kasih.';
+          statusEl.classList.add('form-status--success');
+        })
+        .catch(function () {
+          statusEl.textContent =
+            'Terjadi kesalahan saat mengirim pesan. Silakan coba lagi.';
+          statusEl.classList.add('form-status--error');
+        })
+        .finally(function () {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = submitBtn.dataset.originalText || 'Kirim';
+          }
+        });
     });
   }
 
+  /* ------------------------------------------------------------------ */
+  /*  6. Fade-in on Load                                                 */
+  /* ------------------------------------------------------------------ */
+
+  function initFadeIn() {
+    var wrapper =
+      document.querySelector('.spotlight-wrapper') ||
+      document.querySelector('.layout-wrapper');
+    if (!wrapper) return;
+
+    // Short delay so the browser has painted the initial state (opacity: 0)
+    setTimeout(function () {
+      wrapper.style.opacity = '1';
+    }, 100);
+  }
+
+  /* ------------------------------------------------------------------ */
+  /*  Bootstrap everything on DOMContentLoaded                           */
+  /* ------------------------------------------------------------------ */
+
   document.addEventListener('DOMContentLoaded', function () {
-    initDarkMode();
-    initNavbar();
-    initHamburger();
+    initFadeIn();
+    initSpotlight();
+    initNavHighlighting();
     initSmoothScroll();
-    initScrollAnimation();
-    initSkillBars();
+    initScrollReveal();
     initContactForm();
   });
-
-  // Expose for testing
-  window._validateEmail = validateEmail;
-  window._validateNotEmpty = validateNotEmpty;
 })();
