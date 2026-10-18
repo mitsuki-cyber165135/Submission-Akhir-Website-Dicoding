@@ -495,6 +495,33 @@ article:focus-visible, .project-card:focus-visible {
   margin-bottom: 24px;
 }
 
+.skills-group + .skills-group {
+  margin-top: 28px;
+}
+
+.skills-group h3 {
+  margin-bottom: 12px;
+  font-size: 1rem;
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.skills-list li {
+  padding: 7px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: .9rem;
+}
+
 .skill-item {
   margin-bottom: 20px;
 }
@@ -735,6 +762,24 @@ article:focus-visible, .project-card:focus-visible {
   border-radius: 6px;
   padding: 16px 20px;
   transition: border-color 200ms ease, background-color 300ms ease;
+}
+
+.cert-detail {
+  margin-top: 5px;
+  color: var(--meta-color, #617485);
+  font-size: .82rem;
+}
+
+.cert-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: var(--moss);
+  font-size: .88rem;
+  font-weight: 600;
+}
+
+.cert-link:hover {
+  text-decoration: underline;
 }
 
 .cert-item:hover {

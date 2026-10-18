@@ -158,7 +158,7 @@
       return;
     }
 
-    var targets = document.querySelectorAll('article, .project-card, .timeline-entry, aside');
+    var targets = document.querySelectorAll('.scroll-hidden');
 
     if (!('IntersectionObserver' in window)) {
       targets.forEach(function (el) {
