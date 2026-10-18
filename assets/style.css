@@ -233,8 +233,11 @@ main {
 }
 
 /* Full-width sections inside main flex container */
+#tentang,
+#pengalaman,
 #portofolio,
 #skills,
+#sertifikasi,
 #timeline,
 #kontak {
   flex-basis: 100%;
@@ -681,3 +684,77 @@ article:focus-visible, .project-card:focus-visible {
   font-weight: 600;
 }
 
+
+/* LinkedIn button di aside */
+.btn-linkedin {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 8px 20px;
+  background-color: #0077b5;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  font-family: "Bricolage Grotesque", "Segoe UI", Arial, sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background-color 200ms ease, transform 200ms ease;
+}
+
+.btn-linkedin:hover,
+.btn-linkedin:focus-visible {
+  background-color: #005885;
+  transform: translateY(-2px);
+  outline: none;
+}
+
+/* Sertifikasi grid */
+#sertifikasi {
+  padding: 40px 24px;
+  max-width: 1080px;
+  margin: 0 auto;
+  width: 100%;
+  flex-basis: 100%;
+  min-width: 0;
+}
+
+#sertifikasi h2 {
+  font-size: 1.8rem;
+  margin-bottom: 24px;
+}
+
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.cert-item {
+  background-color: var(--card);
+  border: 1.5px solid var(--line);
+  border-radius: 6px;
+  padding: 16px 20px;
+  transition: border-color 200ms ease, background-color 300ms ease;
+}
+
+.cert-item:hover {
+  border-color: var(--moss);
+}
+
+.cert-issuer {
+  font-size: 0.78rem;
+  color: var(--moss);
+  font-family: "Bricolage Grotesque", "Segoe UI", Arial, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 4px;
+}
+
+.cert-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ink);
+  font-family: "Bricolage Grotesque", "Segoe UI", Arial, sans-serif;
+  line-height: 1.3;
+}

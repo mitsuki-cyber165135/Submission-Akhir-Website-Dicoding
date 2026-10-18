@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Submission Akhir Website Dicoding | Joseph Farrel</title>
+  <title>Joseph Farrel | Mahasiswa Fisika IPB University</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
@@ -18,7 +18,6 @@
           document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
         }
       } catch (e) {
-        // SecurityError in private browsing — fallback to light
         document.documentElement.setAttribute('data-theme', 'light');
       }
     })();
@@ -29,8 +28,8 @@
 
   <header>
     <div class="header-inner">
-      <h1>Situs Website Gua Nih Bray!</h1>
-      <p class="tagline">Tugas Akhir Membuat Website.</p>
+      <h1>Joseph Farrel</h1>
+      <p class="tagline">Mahasiswa Fisika Teoretis & Matematika · IPB University · North Jakarta, Indonesia</p>
     </div>
   </header>
 
@@ -43,14 +42,14 @@
         <span class="hamburger-icon"></span>
       </button>
       <ul class="nav-links" id="nav-links" role="list">
-        <li><a href="#tentang-html">HTML Semantik</a></li>
-        <li><a href="#tentang-flexbox">Flexbox</a></li>
+        <li><a href="#tentang">Tentang</a></li>
+        <li><a href="#pengalaman">Pengalaman</a></li>
         <li><a href="#portofolio">Portofolio</a></li>
-        <li><a href="#profil">Profil</a></li>
         <li><a href="#skills">Keahlian</a></li>
-        <li><a href="#timeline">Timeline</a></li>
+        <li><a href="#sertifikasi">Sertifikasi</a></li>
+        <li><a href="#timeline">Pendidikan</a></li>
         <li><a href="#kontak">Kontak</a></li>
-        <li><a href="https://www.dicoding.com/users/joseph_farrelnh8s/academies" target="_blank" rel="noopener">Dicoding</a></li>
+        <li><a href="https://www.linkedin.com/in/joseph-farrel-536947318/" target="_blank" rel="noopener">LinkedIn</a></li>
       </ul>
       <button class="theme-toggle" id="theme-toggle-btn"
               aria-label="Aktifkan dark mode">
@@ -63,100 +62,153 @@
   <main>
     <div id="content">
 
-      <article id="tentang-html" class="scroll-hidden">
-        <h2>Kenapa HTML semantik itu penting</h2>
-        <p class="meta">Ditulis pada 28 September 2026</p>
+      <article id="tentang" class="scroll-hidden">
+        <h2>Tentang Saya</h2>
         <p>
-          Dulu saya menaruh semuanya di dalam <code>&lt;div&gt;</code>. Halaman tetap tampil,
-          tetapi kode sulit dibaca dan mesin pencari tidak tahu mana bagian yang penting.
+          Halo! Saya <strong>Joseph Farrel</strong>, mahasiswa Bachelor of Science jurusan
+          Fisika Teoretis dan Matematika di <strong>IPB University</strong>, Bogor (2024–2028).
+          Saya berasal dari Jakarta Utara dan memiliki ketertarikan kuat pada pemrograman,
+          sains data, dan pengembangan web.
         </p>
         <p>
-          Elemen seperti <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>,
-          <code>&lt;main&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;aside&gt;</code>,
-          dan <code>&lt;footer&gt;</code> memberi nama pada tiap bagian halaman. Pembaca layar
-          juga bisa melompat langsung ke bagian yang dicari.
+          Di luar kuliah, saya aktif di berbagai organisasi dan kegiatan kemahasiswaan,
+          mulai dari kepemimpinan organisasi hingga event planning skala nasional.
+          Saya percaya bahwa kombinasi antara ilmu sains dan kemampuan teknologi
+          adalah kunci untuk memecahkan masalah nyata.
         </p>
-        <h3>Yang saya pelajari</h3>
+        <h3>Saat ini sedang belajar</h3>
         <ul>
-          <li>Satu halaman hanya punya satu <code>&lt;h1&gt;</code>.</li>
-          <li>Level heading tidak boleh dilompati, dari h2 langsung ke h4 misalnya.</li>
-          <li>Setiap gambar wajib punya teks alternatif.</li>
+          <li>Web Development (HTML, CSS, JavaScript)</li>
+          <li>Data Science dengan Microsoft Fabric</li>
+          <li>Pemrograman dengan Java, C, dan Haskell</li>
+          <li>Pengembangan aplikasi dengan Microsoft Azure</li>
         </ul>
       </article>
 
-      <article id="tentang-flexbox" class="scroll-hidden">
-        <h2>Menyusun layout dengan flexbox</h2>
-        <p class="meta">Ditulis pada 28 September 2026</p>
+      <article id="pengalaman" class="scroll-hidden">
+        <h2>Pengalaman</h2>
+
+        <h3>Head of Departemen Kajian dan Aksi Strategis</h3>
+        <p class="meta">Eksekutif Ormawa PKU IPB · Full-time · Jan 2025 – Nov 2025 · 11 bln · Indonesia</p>
         <p>
-          Layout dua kolom di halaman ini dibuat dengan <code>display: flex</code>, tanpa
-          <code>float</code>. Kolom artikel mengambil sisa ruang lewat <code>flex: 1</code>,
-          sedangkan kolom samping punya lebar tetap.
+          Memimpin departemen kajian dan aksi strategis di organisasi kemahasiswaan
+          Eksekutif Ormawa PKU IPB. Bertanggung jawab atas perencanaan strategis,
+          kajian kebijakan, dan pelaksanaan aksi mahasiswa.
         </p>
+
+        <h3>External Staff · Jakarta Community IPB</h3>
+        <p class="meta">Full-time · Jan 2025 – Nov 2025 · 11 bln · Indonesia</p>
         <p>
-          Di layar sempit, arah flex diubah menjadi <code>column</code> lewat media query,
-          sehingga kolom samping pindah ke bawah artikel.
+          Berperan sebagai staf eksternal untuk komunitas Jakarta di IPB University,
+          menghubungkan mahasiswa asal Jakarta dengan kegiatan kampus dan komunitas lokal.
         </p>
-        <h3>Properti yang paling sering dipakai</h3>
-        <ul>
-          <li><code>flex-direction</code> untuk mengatur arah susunan.</li>
-          <li><code>gap</code> untuk jarak antar elemen.</li>
-          <li><code>justify-content</code> dan <code>align-items</code> untuk perataan.</li>
-        </ul>
+
+        <h3>Head Of Jakarta Community Goes To Gebyar Nusantara 2025</h3>
+        <p class="meta">Seasonal · Mar 2025 – Oct 2025 · 8 bln · Bogor, West Java, Indonesia</p>
+        <p>
+          Memimpin delegasi komunitas Jakarta IPB dalam event Gebyar Nusantara 2025,
+          mengkoordinasikan persiapan, logistik, dan penampilan tim.
+        </p>
+
+        <h3>Liaison Officer · Hardiknas Event In Indonesia Arena</h3>
+        <p class="meta">Angel House · Freelance · May 2024 · 1 bln · Central Jakarta</p>
+        <p>
+          Bertugas sebagai Liaison Officer pada peringatan Hari Pendidikan Nasional 2024
+          di Indonesia Arena. Mengelola koordinasi antar pihak, crowd control, dan
+          hubungan tamu undangan dalam acara berskala nasional.
+        </p>
+        <p class="meta">Skills: Event Planning · Crowd Control · Problem Solving · Teamwork · Guest Relations · Public Speaking</p>
+
+        <h3>School President · SMAN 15 Jakarta</h3>
+        <p class="meta">Aug 2022 – Sep 2023 · 1 thn 2 bln · North Jakarta · On-site</p>
+        <p>
+          Terpilih sebagai Ketua OSIS SMAN 15 Jakarta. Memimpin program kerja organisasi siswa,
+          mengkoordinasikan kegiatan sekolah, dan menjadi representasi siswa dalam forum
+          sekolah maupun luar sekolah.
+        </p>
+        <p class="meta">Skills: Leadership</p>
       </article>
 
     </div>
 
     <aside id="profil" class="scroll-hidden">
-      <img src="assets/IMG_5764ok.jpg" alt="Foto Profil Saya">
-      <h2>Tentang saya</h2>
+      <img src="assets/IMG_5764ok.jpg" alt="Foto Profil Joseph Farrel">
+      <h2>Joseph Farrel</h2>
       <dl>
-        <dt>Nama</dt>
-        <dd>Joseph Farrel</dd>
-        <dt>Sedang belajar</dt>
-        <dd>Submission Dicoding</dd>
+        <dt>Universitas</dt>
+        <dd>IPB University</dd>
+        <dt>Jurusan</dt>
+        <dd>Fisika Teoretis & Matematika</dd>
         <dt>Kota</dt>
-        <dd>Jakarta</dd>
-        <dt>Target</dt>
-        <dd>Menjadi front-end developer</dd>
+        <dd>North Jakarta, Indonesia</dd>
+        <dt>Status</dt>
+        <dd>Mahasiswa S1 (2024–2028)</dd>
+        <dt>Pronouns</dt>
+        <dd>He/Him</dd>
       </dl>
+      <a href="https://www.linkedin.com/in/joseph-farrel-536947318/"
+         target="_blank"
+         rel="noopener"
+         class="btn-linkedin"
+         aria-label="Lihat profil LinkedIn Joseph Farrel">
+        🔗 LinkedIn Profile
+      </a>
     </aside>
 
     <section id="skills" aria-labelledby="skills-heading">
       <h2 id="skills-heading">Keahlian</h2>
       <div class="skill-item scroll-hidden">
         <div class="skill-label">
-          <span>HTML</span>
-          <span class="skill-pct" aria-hidden="true">90%</span>
+          <span>Web Development</span>
+          <span class="skill-pct" aria-hidden="true">80%</span>
         </div>
         <div class="skill-track">
-          <div class="skill-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="HTML: 90%" data-value="90" style="width: 0%"></div>
+          <div class="skill-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" aria-label="Web Development: 80%" data-value="80" style="width: 0%"></div>
         </div>
       </div>
       <div class="skill-item scroll-hidden">
         <div class="skill-label">
-          <span>CSS</span>
-          <span class="skill-pct" aria-hidden="true">85%</span>
-        </div>
-        <div class="skill-track">
-          <div class="skill-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" aria-label="CSS: 85%" data-value="85" style="width: 0%"></div>
-        </div>
-      </div>
-      <div class="skill-item scroll-hidden">
-        <div class="skill-label">
-          <span>JavaScript</span>
-          <span class="skill-pct" aria-hidden="true">75%</span>
-        </div>
-        <div class="skill-track">
-          <div class="skill-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" aria-label="JavaScript: 75%" data-value="75" style="width: 0%"></div>
-        </div>
-      </div>
-      <div class="skill-item scroll-hidden">
-        <div class="skill-label">
-          <span>Git</span>
+          <span>SQL & Data Science</span>
           <span class="skill-pct" aria-hidden="true">70%</span>
         </div>
         <div class="skill-track">
-          <div class="skill-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" aria-label="Git: 70%" data-value="70" style="width: 0%"></div>
+          <div class="skill-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" aria-label="SQL & Data Science: 70%" data-value="70" style="width: 0%"></div>
+        </div>
+      </div>
+      <div class="skill-item scroll-hidden">
+        <div class="skill-label">
+          <span>Leadership & Organisasi</span>
+          <span class="skill-pct" aria-hidden="true">90%</span>
+        </div>
+        <div class="skill-track">
+          <div class="skill-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="Leadership: 90%" data-value="90" style="width: 0%"></div>
+        </div>
+      </div>
+      <div class="skill-item scroll-hidden">
+        <div class="skill-label">
+          <span>Event Planning</span>
+          <span class="skill-pct" aria-hidden="true">85%</span>
+        </div>
+        <div class="skill-track">
+          <div class="skill-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" aria-label="Event Planning: 85%" data-value="85" style="width: 0%"></div>
+        </div>
+      </div>
+      <div class="skill-item scroll-hidden">
+        <div class="skill-label">
+          <span>Public Speaking</span>
+          <span class="skill-pct" aria-hidden="true">85%</span>
+        </div>
+        <div class="skill-track">
+          <div class="skill-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" aria-label="Public Speaking: 85%" data-value="85" style="width: 0%"></div>
+        </div>
+      </div>
+      <div class="skill-item scroll-hidden">
+        <div class="skill-label">
+          <span>Theoretical Physics</span>
+          <span class="skill-pct" aria-hidden="true">75%</span>
+        </div>
+        <div class="skill-track">
+          <div class="skill-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" aria-label="Theoretical Physics: 75%" data-value="75" style="width: 0%"></div>
         </div>
       </div>
     </section>
@@ -165,63 +217,110 @@
       <h2 id="portofolio-heading">Portofolio</h2>
       <div class="portfolio-grid" role="list">
         <article class="project-card scroll-hidden" role="listitem">
-          <h3 class="project-name">Website Portofolio</h3>
-          <p class="project-desc">Website portofolio pribadi yang dibangun dengan HTML, CSS, dan JavaScript vanilla. Menampilkan proyek dan keahlian secara interaktif.</p>
+          <h3 class="project-name">Website Portofolio Pribadi</h3>
+          <p class="project-desc">Website portofolio interaktif yang dibangun dengan HTML, CSS, dan JavaScript vanilla. Menampilkan dark mode, animasi scroll, skill bars, dan form kontak terintegrasi Formspree.</p>
           <div class="project-tags" aria-label="Teknologi yang digunakan">
             <span class="tag">HTML</span>
             <span class="tag">CSS</span>
             <span class="tag">JavaScript</span>
+            <span class="tag">Vercel</span>
           </div>
-          <a href="#" target="_blank" rel="noopener" class="project-link">Lihat Proyek →</a>
+          <a href="https://github.com/mitsuki-cyber165135/Submission-Akhir-Website-Dicoding" target="_blank" rel="noopener" class="project-link">Lihat di GitHub →</a>
         </article>
         <article class="project-card scroll-hidden" role="listitem">
-          <h3 class="project-name">Aplikasi Todo List</h3>
-          <p class="project-desc">Aplikasi manajemen tugas sederhana dengan fitur tambah, edit, hapus, dan filter tugas. Data tersimpan di localStorage.</p>
+          <h3 class="project-name">Spec-Driven Development dengan Kiro</h3>
+          <p class="project-desc">Proyek pengembangan berbasis spesifikasi menggunakan Kiro AI sebagai asisten pengembangan. Sertifikasi dari Dicoding Indonesia.</p>
           <div class="project-tags" aria-label="Teknologi yang digunakan">
-            <span class="tag">JavaScript</span>
-            <span class="tag">LocalStorage</span>
-            <span class="tag">CSS Grid</span>
+            <span class="tag">Kiro</span>
+            <span class="tag">Dicoding</span>
+            <span class="tag">Spec-Driven</span>
           </div>
-          <a href="#" target="_blank" rel="noopener" class="project-link">Lihat Proyek →</a>
+          <a href="https://www.linkedin.com/in/joseph-farrel-536947318/" target="_blank" rel="noopener" class="project-link">Lihat Sertifikat →</a>
         </article>
         <article class="project-card scroll-hidden" role="listitem">
-          <h3 class="project-name">Kalkulator Web</h3>
-          <p class="project-desc">Kalkulator web responsif dengan antarmuka modern yang mendukung operasi aritmatika dasar dan memori kalkulasi.</p>
-          <div class="project-tags" aria-label="Teknologi yang digunakan">
-            <span class="tag">HTML</span>
-            <span class="tag">CSS Flexbox</span>
-            <span class="tag">JavaScript</span>
+          <h3 class="project-name">Gebyar Nusantara 2025</h3>
+          <p class="project-desc">Memimpin delegasi Jakarta Community IPB dalam event budaya nasional Gebyar Nusantara 2025. Mengkoordinasikan tim, logistik, dan penampilan selama 8 bulan.</p>
+          <div class="project-tags" aria-label="Kategori">
+            <span class="tag">Leadership</span>
+            <span class="tag">Event</span>
+            <span class="tag">Nasional</span>
           </div>
-          <a href="#" target="_blank" rel="noopener" class="project-link">Lihat Proyek →</a>
+          <a href="https://www.linkedin.com/in/joseph-farrel-536947318/" target="_blank" rel="noopener" class="project-link">Lihat Detail →</a>
         </article>
       </div>
     </section>
 
+    <section id="sertifikasi" aria-labelledby="sertifikasi-heading">
+      <h2 id="sertifikasi-heading">Lisensi &amp; Sertifikasi</h2>
+      <div class="cert-grid">
+        <div class="cert-item scroll-hidden">
+          <div class="cert-issuer">Dicoding Indonesia</div>
+          <div class="cert-name">Spec-Driven Development dengan Kiro</div>
+        </div>
+        <div class="cert-item scroll-hidden">
+          <div class="cert-issuer">Dicoding Indonesia</div>
+          <div class="cert-name">Pemrograman dengan Haskell</div>
+        </div>
+        <div class="cert-item scroll-hidden">
+          <div class="cert-issuer">Dicoding Indonesia</div>
+          <div class="cert-name">Manajemen Proyek</div>
+        </div>
+        <div class="cert-item scroll-hidden">
+          <div class="cert-issuer">Dicoding Indonesia</div>
+          <div class="cert-name">Pemrograman Dengan C</div>
+        </div>
+        <div class="cert-item scroll-hidden">
+          <div class="cert-issuer">Dicoding Indonesia</div>
+          <div class="cert-name">Pemrograman Dengan Java</div>
+        </div>
+        <div class="cert-item scroll-hidden">
+          <div class="cert-issuer">Dicoding Indonesia</div>
+          <div class="cert-name">Membangun Aplikasi Gen AI dengan Microsoft Azure</div>
+        </div>
+        <div class="cert-item scroll-hidden">
+          <div class="cert-issuer">Dicoding Indonesia</div>
+          <div class="cert-name">Penerapan Data Science dengan Microsoft Fabric</div>
+        </div>
+        <div class="cert-item scroll-hidden">
+          <div class="cert-issuer">Dicoding Indonesia</div>
+          <div class="cert-name">Pemrograman Web</div>
+        </div>
+        <div class="cert-item scroll-hidden">
+          <div class="cert-issuer">Dicoding Indonesia</div>
+          <div class="cert-name">Pemrograman untuk Menjadi Pengembang Software</div>
+        </div>
+        <div class="cert-item scroll-hidden">
+          <div class="cert-issuer">Dicoding Indonesia</div>
+          <div class="cert-name">Visualisasi Data</div>
+        </div>
+        <div class="cert-item scroll-hidden">
+          <div class="cert-issuer">Dicoding Indonesia</div>
+          <div class="cert-name">Dasar AI</div>
+        </div>
+        <div class="cert-item scroll-hidden">
+          <div class="cert-issuer">Taught for You — Narendracita</div>
+          <div class="cert-name">Siswa Teridentifikasi Genius - Universitas</div>
+        </div>
+      </div>
+    </section>
+
     <section id="timeline" aria-labelledby="timeline-heading">
-      <h2 id="timeline-heading">Riwayat</h2>
-      <ol class="timeline-list" aria-label="Riwayat pendidikan dan pengalaman">
+      <h2 id="timeline-heading">Pendidikan</h2>
+      <ol class="timeline-list" aria-label="Riwayat pendidikan">
         <li class="timeline-entry scroll-hidden">
           <div class="timeline-dot" aria-hidden="true"></div>
           <div class="timeline-content">
-            <time class="timeline-year" datetime="2024">2024</time>
-            <h3 class="timeline-title">Belajar Web Development</h3>
-            <p class="timeline-desc">Memulai perjalanan belajar web development melalui platform Dicoding, menguasai HTML, CSS, dan JavaScript dasar.</p>
+            <time class="timeline-year" datetime="2024">2024 – 2028</time>
+            <h3 class="timeline-title">IPB University</h3>
+            <p class="timeline-desc">Bachelor of Science (BS) · Fisika Teoretis dan Matematika · Bogor, Indonesia. Fokus pada fisika komputasi, pemodelan matematika, dan pengembangan teknologi.</p>
           </div>
         </li>
         <li class="timeline-entry scroll-hidden">
           <div class="timeline-dot" aria-hidden="true"></div>
           <div class="timeline-content">
-            <time class="timeline-year" datetime="2023">2023</time>
-            <h3 class="timeline-title">SMA / Sekolah Menengah Atas</h3>
-            <p class="timeline-desc">Menyelesaikan pendidikan di jenjang SMA dengan minat besar pada teknologi dan pemrograman komputer.</p>
-          </div>
-        </li>
-        <li class="timeline-entry scroll-hidden">
-          <div class="timeline-dot" aria-hidden="true"></div>
-          <div class="timeline-content">
-            <time class="timeline-year" datetime="2022">2022</time>
-            <h3 class="timeline-title">Pengenalan Pemrograman</h3>
-            <p class="timeline-desc">Mulai mengenal dunia pemrograman dan logika komputer melalui kursus online dan eksplorasi mandiri.</p>
+            <time class="timeline-year" datetime="2021">2021 – 2024</time>
+            <h3 class="timeline-title">SMA Negeri 15 Jakarta</h3>
+            <p class="timeline-desc">High School Diploma · Matematika dan IPA · North Jakarta. Menjabat sebagai Ketua OSIS periode 2022–2023 dan aktif dalam berbagai kegiatan ekstrakurikuler.</p>
           </div>
         </li>
       </ol>
@@ -229,6 +328,10 @@
 
     <section id="kontak" aria-labelledby="kontak-heading">
       <h2 id="kontak-heading">Kontak</h2>
+      <p style="margin-bottom: 20px; color: var(--ink);">
+        Tertarik untuk berkolaborasi atau sekadar ngobrol? Kirim pesan atau hubungi saya lewat
+        <a href="https://www.linkedin.com/in/joseph-farrel-536947318/" target="_blank" rel="noopener" style="color: var(--moss); font-weight: 600;">LinkedIn</a>.
+      </p>
       <form id="contact-form" novalidate>
         <div class="form-group">
           <label for="contact-name">Nama</label>
@@ -255,7 +358,11 @@
   </main>
 
   <footer>
-    <p>&copy; 2026 Joseph Farrel. Dibuat sebagai submission kelas belajar dasar pemrograman web.</p>
+    <p>
+      &copy; 2025 Joseph Farrel ·
+      <a href="https://www.linkedin.com/in/joseph-farrel-536947318/" target="_blank" rel="noopener" style="color: #c3d0c9;">LinkedIn</a>
+      · IPB University
+    </p>
   </footer>
 
   <script src="assets/main.js" defer></script>
