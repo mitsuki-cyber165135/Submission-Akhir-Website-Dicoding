@@ -14,13 +14,14 @@
   <!-- Styles -->
   <link rel="stylesheet" href="assets/style.css" />
 
-  <!-- Early theme script (default dark) -->
-  <script>
+    <!-- Early theme script (default dark) -->
+    <script>
     (function () {
       const theme = localStorage.getItem('theme') || 'dark';
       document.documentElement.setAttribute('data-theme', theme);
     })();
   </script>
+  <script src="/assets/tampilan.js"></script>
 </head>
 <body>
   <!-- Skip to content -->
@@ -33,15 +34,14 @@
     <!-- ===================== LEFT SIDEBAR ===================== -->
     <header class="sidebar">
       <div class="sidebar__inner">
-        <!-- Profile image -->
-        <div class="sidebar__avatar">
-          <img src="assets/IMG_5764ok.jpg" alt="Joseph Farrel" width="120" height="120" />
-        </div>
-
+        
         <!-- Identity -->
         <h1 class="sidebar__name">Joseph Farrel</h1>
         <h2 class="sidebar__title">Physics Student at IPB University</h2>
         <p class="sidebar__tagline">I study theoretical physics &amp; mathematics while building things for the web.</p>
+        <p class="sidebar__switch">
+          <a href="/klasik/" onclick="try{localStorage.setItem('tampilan','klasik')}catch(e){}">Lihat versi klasik</a>
+        </p>
 
         <!-- Navigation -->
         <nav class="sidebar__nav" aria-label="In-page navigation">
@@ -571,7 +571,7 @@
     </main>
   </div>
 
-  <!-- Scripts -->
+   <!-- Scripts -->
   <script src="assets/main.js" defer></script>
 </body>
 </html>

@@ -33,6 +33,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .sidebar__name{font-size:2.25rem;font-weight:700;line-height:1.15;letter-spacing:-.025em;color:var(--heading)}
 .sidebar__title{margin-top:12px;font-size:1.125rem;font-weight:500;color:var(--heading)}
 .sidebar__tagline{margin-top:16px;max-width:22rem}
+.sidebar__switch{margin-top:16px;font-size:.875rem}
+.sidebar__switch a{font-weight:500;color:var(--accent)}
+.sidebar__switch a:hover{text-decoration:underline}
 @media(min-width:640px){.sidebar__name{font-size:3rem}.sidebar__title{font-size:1.25rem}}
 
 .sidebar__nav{display:none;margin-top:64px}
